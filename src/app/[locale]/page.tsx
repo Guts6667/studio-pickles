@@ -1,13 +1,10 @@
-// src/app/[locale]/page.tsx
-import ContactUs from "../components/ContactUs";
-import FollowUs from "../components/FollowUs";
 import Hero from "../components/Hero";
-import OurClients from "../components/OurClients";
-import OurServices from "../components/OurServices";
 import OurWork from "../components/OurWork";
+import OurServices from "../components/OurServices";
+import OurClients from "../components/OurClients";
+import FollowUs from "../components/FollowUs";
+import ContactUs from "../components/ContactUs";
 import getMessages from "../lib/i18n";
-
-
 
 export default async function LocaleHome({
   params,
