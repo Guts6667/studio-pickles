@@ -1,7 +1,13 @@
 {
-    "hero": {
-      "headline": "We kick-start companies and make you\nexist in the digital realm.",
-      "sub": "Product Studio based in Paris & Rotterdam.",
-      "cta": "See Our Work"
-    }
+  "nav" :{
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "hero": {
+    "sub": "Product Studio based in Paris & Rotterdam.",
+    "headline": "We kick-start companies and make you\nexist in the digital realm."
   }
+}

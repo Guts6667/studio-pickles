@@ -23,7 +23,7 @@ export default function RootLayout({
       className={`${instrumentSans.variable} ${instrumentSerif.variable}`}
     >
       <body className="font-sans antialiased text-zinc-900 bg-black ">
-        <Header />
+        <Header  />
         {children}
       </body>
     </html>

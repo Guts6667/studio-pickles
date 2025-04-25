@@ -7,7 +7,7 @@ export default function LocaleSwitcher() {
   const pathname = usePathname() || "/";
   return (
     <nav className="flex gap-2">
-      {["en", "fr"].map((loc) => (
+      {["en", "fr", "nl"].map((loc) => (
         <Link
           key={loc}
           href={`/${loc}${pathname.slice(3)}`}    // enlève /en ou /fr du chemin

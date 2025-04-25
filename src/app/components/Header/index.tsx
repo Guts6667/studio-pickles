@@ -6,31 +6,52 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
-const links = [
-  { label: "Home", href: "/" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
+const LABELS = {
+  en: { home: "Home",  portfolio: "Portfolio", services: "Services", about: "About",  contact: "Contact" },
+  fr: { home: "Accueil", portfolio: "Portfolio", services: "Services", about: "À propos", contact: "Contact" },
+  nl: { home: "Thuis",  portfolio: "Portfolio", services: "Diensten", about: "Over ons",   contact: "Contact" },
+} as const;
 
+const LINKS = [
+  { key: "home",      href: "/" },
+  { key: "portfolio", href: "/portfolio" },
+  { key: "services",  href: "/services" },
+  { key: "about",     href: "/about" },
+  { key: "contact",   href: "/contact" },
+];
 export default function Header() {
+  /* ───────── state & helpers ───────── */
   const [open, setOpen] = useState(false);
-  const pathname = usePathname() || "/";
-  const localeMatch = pathname.match(/^\/(\w{2})(\/|$)/);
-  const locale = localeMatch ? localeMatch[1] : "en";
+  const pathname        = usePathname() || "/";
+  const locale          = pathname.match(/^\/(\w{2})(\/|$)/)?.[1] ?? "en";
+  const pathWithoutLoc  = pathname.replace(/^\/\w{2}/, "");
+
+  const l = LABELS[locale as keyof typeof LABELS] ?? LABELS.en;
 
   const toggle = () => setOpen((v) => !v);
-  const close = () => setOpen(false);
-  useEffect(() => close(), [pathname]); // auto‑close on navigation
+  const close  = () => setOpen(false);
+  useEffect(() => close(), [pathname]);   // ferme le volet à chaque nav
 
+
+  /* ───────── render ───────── */
   return (
     <>
-      {/* Top bar */}
-      <header className="sticky top-0 z-50 flex items-center justify-between p-[48px] backdrop-blur w-full">
+      {/* Top bar */}
+      <header className="sticky top-0 z-50 flex items-center justify-between p-[48px]  w-full">
         {/* Logo */}
-        <Link href={`/${locale}`} className="flex items-center" aria-label="PicklesStudio – home">
-          <Image src="/img/logo-pickles.svg" alt="PicklesStudio logo"   className="h-[12px] w-auto lg:h-[20px]"width={140} height={32}  priority />
+        <Link
+          href={`/${locale}`}
+          className="flex items-center"
+          aria-label="PicklesStudio – home"
+        >
+          <Image
+            src="/img/logo-pickles.svg"
+            alt="PicklesStudio logo"
+            className="h-[12px] w-auto lg:h-[20px]"
+            width={140}
+            height={32}
+            priority
+          />
         </Link>
 
         {/* MENU button */}
@@ -40,42 +61,61 @@ export default function Header() {
           className="flex items-center gap-[12px] focus-visible:outline-none cursor-pointer"
         >
           <span className="tracking-widest text-[12px] lg:text-[20px]">MENU</span>
-          {/* two‑line burger */}
-          <div className="  flex flex-col justify-center gap-[8px] lg:gap-[8px]  h-full w-[35px] lg:w-[45px]">
+          {/* two-line burger */}
+          <div className="flex flex-col justify-center gap-[8px] lg:gap-[8px] h-full w-[35px] lg:w-[45px]">
+            {/* ligne 1 */}
             <span
               className={clsx(
-                " relative h-[0.5px] w-full bg-white transition-transform duration-300", // line 1
+                "relative h-[0.5px] w-full bg-white transition-transform duration-300",
                 open && "absolute right-0 top-0 translate-y-[8px] rotate-45"
               )}
             />
+            {/* ligne 2 */}
             <span
               className={clsx(
-                " relative h-[0.5px] w-full bg-white transition-transform duration-300", // line 2
-                open && "absolute right-0 top-0  -rotate-45"
+                "relative h-[0.5px] w-full bg-white transition-transform duration-300",
+                open && "absolute right-0 top-0 -rotate-45"
               )}
             />
           </div>
         </button>
       </header>
 
-      {/* Slide‑in panel */}
-      <div
+      {/* Slide-in panel */}
+      <nav
         className={clsx(
-          "fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-black/95 text-3xl tracking-wide transition-transform duration-300",
+          "fixed inset-0 z-40 flex flex-col items-center justify-center gap-[24px] bg-black/90 text-[40px] tracking-wide transition-transform duration-300",
           open ? "translate-x-0" : "translate-x-full"
         )}
       >
-        {links.map(({ label, href }) => (
+        {LINKS.map(({ key, href }) => (
           <Link
-            key={href}
+            key={key}
             href={`/${locale}${href === "/" ? "" : href}`}
-            className="hover:text-lime-400"
             onClick={close}
+            className="hover:text-lime-400"
           >
-            {label}
+            {l[key as keyof typeof l]}
           </Link>
         ))}
-      </div>
+
+        {/* switcher EN / FR / NL */}
+        <div className="absolute bottom-8 flex gap-6 text-[20px]">
+          {Object.keys(LABELS).map((loc) => (
+            <Link
+              key={loc}
+              href={`/${loc}${pathWithoutLoc}`}
+              onClick={close}
+              className={clsx(
+                "uppercase",
+                loc === locale ? "text-lime-400 underline" : "hover:text-lime-400"
+              )}
+            >
+              {loc}
+            </Link>
+          ))}
+        </div>
+      </nav>
     </>
   );
 }

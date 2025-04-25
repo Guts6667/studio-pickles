@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Tony Querrec",
+        "description": "A collection of my work and projects.",
+        "image": "tony-querrec.png",
+        "tags": ["web", "design", "projects"],
+        "date": "2023-10-01"
+    },
+    {
+        "title": "Sciences Co",
+        "description": "A showcase of my personal projects and contributions.",
+        "image": "sciences-co.png",
+        "tags": ["development", "open-source"],
+        "date": "2023-09-15"
+    },
+    {
+        "title": "Noubia",
+        "description": "A showcase of my personal projects and contributions.",
+        "image": "noubia.png",
+        "tags": ["development", "open-source"],
+        "date": "2023-09-15"
+    },
+    {
+        "title": "Dropper",
+        "description": "A showcase of my personal projects and contributions.",
+        "image": "dropper.png",
+        "tags": ["development", "open-source"],
+        "date": "2023-09-15"
+    },
+    {
+        "title": "Karma",
+        "description": "A showcase of my personal projects and contributions.",
+        "image": "karma.png",
+        "tags": ["development", "open-source"],
+        "date": "2023-09-15"
+    },
+    {
+        "title": "Gût",
+        "description": "A showcase of my personal projects and contributions.",
+        "image": "Gut-Mock.png",
+        "tags": ["development", "open-source"],
+        "date": "2023-09-15"
+    }
+]
