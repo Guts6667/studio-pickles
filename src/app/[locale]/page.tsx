@@ -9,9 +9,9 @@ import getMessages from "../lib/i18n";
 export default async function LocaleHome({
   params,
 }: {
-  params: { locale: string };
+  params: { slug: string };
 }) {
-  const t = await getMessages(params.locale);
+  const t = await getMessages(params.slug);
 
   return (
     <main className="flex flex-col gap-[96px]">
