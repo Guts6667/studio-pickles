@@ -6,11 +6,7 @@ import FollowUs from "../components/FollowUs";
 import ContactUs from "../components/ContactUs";
 import getMessages from "../lib/i18n";
 
-export default async function LocaleHome({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function LocaleHome({ params }: any) {
   const t = await getMessages(params.slug);
 
   return (
