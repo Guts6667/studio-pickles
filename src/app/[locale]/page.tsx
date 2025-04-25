@@ -7,9 +7,13 @@ import OurServices from "../components/OurServices";
 import OurWork from "../components/OurWork";
 import getMessages from "../lib/i18n";
 
-type PageProps = { params: { locale: string } };
 
-export default async function LocaleHome({ params }: PageProps) {
+
+export default async function LocaleHome({
+  params,
+}: {
+  params: { locale: string };
+}) {
   const t = await getMessages(params.locale);
 
   return (
