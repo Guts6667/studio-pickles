@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./globals.css";
 import { Instrument_Sans, Instrument_Serif } from "next/font/google";
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className="font-sans antialiased text-zinc-900 bg-black ">
         <Header  />
         {children}
+        <Footer />
       </body>
     </html>
   );

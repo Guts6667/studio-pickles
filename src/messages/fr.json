@@ -2,5 +2,20 @@
   "hero": {
     "sub": "Studio Produit basé à Paris & Rotterdam.",
     "headline": "Nous lançons des entreprises et vous faisons exister dans le monde digital."
+  },
+  "ourServices": {
+    "title": "Nos Services",
+    "services": [
+      "DESIGN CRÉATIF",
+      "RECHERCHE & STRATÉGIE",
+      "UX DESIGN",
+      "UI DESIGN",
+      "DÉVELOPPEMENT DE SITES WEB",
+      "DÉVELOPPEMENT D'APPLICATIONS",
+      "RÉSOLUTION DE PROBLÈMES TECHNIQUES"
+    ]
+  },
+  "ourClients": {
+    "title": "Nos Clients"
   }
 }

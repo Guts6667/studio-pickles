@@ -9,5 +9,12 @@
   "hero": {
     "sub": "Product Studio based in Paris & Rotterdam.",
     "headline": "We kick-start companies and make you\nexist in the digital realm."
+  },
+  "ourServices": {
+    "title": "Our Services",
+    "services":["CREATIVE DESIGN", "RESEARCH & STRATEGY", "USER EXPERIENCE DESIGN", "USER INTERFACE DESIGN", "WEBSITE DEVELOPMENT", "APPLICATION DEVELOPMENT", "TECH PROBLEM SOLVING"]
+  },
+  "ourClients": {
+    "title": "Our Clients"
   }
 }

@@ -2,5 +2,20 @@
   "hero": {
     "sub": "Productstudio gevestigd in Parijs en Rotterdam.",
     "headline": "We starten bedrijven op en laten je bestaan in de digitale wereld."
+  },
+  "ourServices": {
+    "title": "Onze Diensten",
+    "services": [
+      "CREATIEF ONTWERP",
+      "ONDERZOEK & STRATEGIE",
+      "GEBRUIKERSERVARING ONTWERP",
+      "GEBRUIKERSINTERFACE ONTWERP",
+      "WEBSITE ONTWIKKELING",
+      "TOEPASSING ONTWIKKELING",
+      "TECHNISCHE PROBLEEMOPLOSSING"
+    ]
+  },
+  "ourClients": {
+    "title": "Onze Klanten"
   }
 }

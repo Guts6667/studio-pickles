@@ -1,4 +1,6 @@
 // src/app/[locale]/page.tsx
+import ContactUs from "../components/ContactUs";
+import FollowUs from "../components/FollowUs";
 import Hero from "../components/Hero";
 import OurClients from "../components/OurClients";
 import OurServices from "../components/OurServices";
@@ -11,11 +13,13 @@ export default async function LocaleHome({ params }: PageProps) {
   const t = await getMessages(params.locale);
 
   return (
-    <main className="flex flex-col gap-[48px]">
+    <main className="flex flex-col gap-[96px]">
       <Hero hero={t.hero} />
       <OurWork />
-      <OurServices />
-      <OurClients />
+      <OurServices services={t.ourServices} />
+      <OurClients clients={t.ourClients} />
+      <FollowUs />
+      <ContactUs />
     </main>
   );
 }
