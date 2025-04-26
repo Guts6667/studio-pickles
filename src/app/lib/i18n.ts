@@ -1,6 +1,6 @@
-// src/lib/i18n.ts
+// src/app/lib/i18n.ts
 
-// 1) Tes types reflétant exactement ton JSON
+// 1) Définis exactement tes types d’après la structure de ton JSON
 export interface NavMessages {
   home: string;
   about: string;
@@ -30,19 +30,21 @@ export type Messages = {
   ourClients: OurClientsMessages;
 };
 
-// 2) Impor​​t statique de tes JSON
+// 2) Import statiquement CHAQUE fichier JSON
 import en from "../../messages/en.json";
 import fr from "../../messages/fr.json";
 import nl from "../../messages/nl.json";
 
-// 3) Map locale → données
-const messagesMap: Record<string, Messages> = {
+// 3) Map locale → objet Messages
+const messagesMap: Record<"en" | "fr" | "nl", Messages> = {
   en,
   fr,
   nl,
 };
 
-export default async function getMessages(locale: string): Promise<Messages> {
-  // 4) On renvoie directement l’objet, ou fallback à "en"
-  return messagesMap[locale] ?? messagesMap.en;
+export default async function getMessages(
+  locale: string
+): Promise<Messages> {
+  // 4) On renvoie directement le bon objet ou on retombe sur l’anglais
+  return messagesMap[locale as keyof typeof messagesMap] ?? messagesMap.en;
 }
