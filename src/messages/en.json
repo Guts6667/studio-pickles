@@ -1,5 +1,5 @@
 {
-  "nav" :{
+  "nav": {
     "home": "Home",
     "about": "About",
     "services": "Services",
@@ -12,7 +12,7 @@
   },
   "ourServices": {
     "title": "Our Services",
-    "services":["CREATIVE DESIGN", "RESEARCH & STRATEGY", "USER EXPERIENCE DESIGN", "USER INTERFACE DESIGN", "WEBSITE DEVELOPMENT", "APPLICATION DEVELOPMENT", "TECH PROBLEM SOLVING"]
+    "services": ["CREATIVE DESIGN", "RESEARCH & STRATEGY", "USER EXPERIENCE DESIGN", "USER INTERFACE DESIGN", "WEBSITE DEVELOPMENT", "APPLICATION DEVELOPMENT", "TECH PROBLEM SOLVING"]
   },
   "ourClients": {
     "title": "Our Clients"
