@@ -1,9 +1,10 @@
 // src/app/[locale]/layout.jsx
 
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import "../globals.css";
+
+import Header from "./components/Header";
+import "./globals.css";
 import { Instrument_Sans, Instrument_Serif } from "next/font/google";
+import Footer from "./components/Footer";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -15,7 +16,7 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
 });
 
-export default async function LocaleLayout({ children, params }) {
+export default async function RootLayout({ children, params }) {
   return (
     <html
       lang={params.locale}
