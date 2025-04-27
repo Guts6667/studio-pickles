@@ -1,7 +1,7 @@
 // src/components/Hero.tsx
 import Image from "next/image";
 
-export default function Hero({hero}: {hero: {sub: string; headline: string}}) {
+export default function Hero({ hero }) {
   return (
     <section className=" flex flex-col gap-[12px] min-h-[90vh] items-center justify-center bg-black text-center px-[12px] ">
       <h1 className="text-[14vw] lg:text-[10vw] ">

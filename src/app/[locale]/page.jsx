@@ -1,4 +1,4 @@
-// src/app/[locale]/page.tsx
+// src/app/[locale]/page.jsx
 
 import ContactUs from "../components/ContactUs";
 import FollowUs from "../components/FollowUs";
@@ -8,12 +8,7 @@ import OurServices from "../components/OurServices";
 import OurWork from "../components/OurWork";
 import getMessages from "../lib/i18n";
 
-
-export default async function LocaleHome({
-  params,
-}: {
-  params: { locale: string };
-}) {
+export default async function LocaleHome({ params }) {
   const t = await getMessages(params.locale);
 
   return (

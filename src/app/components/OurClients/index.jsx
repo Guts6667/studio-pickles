@@ -1,11 +1,7 @@
 import React from "react";
 import InfiniteTextSlider from "../InfiniteTextSlider";
 
-export default function OurClients({
-  clients,
-}: {
-  clients: { title: string };
-}) {
+export default function OurClients({ clients }) {
   return (
     <section className="py-[48px] flex flex-col gap-[48px]">
       <h2 className="px-[36px] text-[24px] 3xl:text-[32px]">

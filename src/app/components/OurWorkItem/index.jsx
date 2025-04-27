@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-export default function OurWorkItem({ item }: { item: any }) {
+export default function OurWorkItem({ item }) {
   const hash = [...item.title].reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
   const variant = ["hover-up", "hover-down", "hover-left", "hover-right"][
     hash % 4

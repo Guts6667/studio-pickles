@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-export default function OurServices({services,}: {services: { title: string; services: string[] };}) 
+export default function OurServices({services}) 
 
 {
   return (

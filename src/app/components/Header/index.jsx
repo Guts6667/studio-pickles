@@ -1,3 +1,5 @@
+// src/components/Header.jsx
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,37 +9,56 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 const LABELS = {
-  en: { home: "Home",  portfolio: "Portfolio", services: "Services", about: "About",  contact: "Contact" },
-  fr: { home: "Accueil", portfolio: "Portfolio", services: "Services", about: "À propos", contact: "Contact" },
-  nl: { home: "Thuis",  portfolio: "Portfolio", services: "Diensten", about: "Over ons",   contact: "Contact" },
-} as const;
+  en: {
+    home: "Home",
+    portfolio: "Portfolio",
+    services: "Services",
+    about: "About",
+    contact: "Contact",
+  },
+  fr: {
+    home: "Accueil",
+    portfolio: "Portfolio",
+    services: "Services",
+    about: "À propos",
+    contact: "Contact",
+  },
+  nl: {
+    home: "Thuis",
+    portfolio: "Portfolio",
+    services: "Diensten",
+    about: "Over ons",
+    contact: "Contact",
+  },
+};
 
 const LINKS = [
-  { key: "home",      href: "/" },
+  { key: "home", href: "/" },
   { key: "portfolio", href: "/portfolio" },
-  { key: "services",  href: "/services" },
-  { key: "about",     href: "/about" },
-  { key: "contact",   href: "/contact" },
+  { key: "services", href: "/services" },
+  { key: "about", href: "/about" },
+  { key: "contact", href: "/contact" },
 ];
+
 export default function Header() {
   /* ───────── state & helpers ───────── */
   const [open, setOpen] = useState(false);
-  const pathname        = usePathname() || "/";
-  const locale          = pathname.match(/^\/(\w{2})(\/|$)/)?.[1] ?? "en";
-  const pathWithoutLoc  = pathname.replace(/^\/\w{2}/, "");
+  const pathname = usePathname() || "/";
+  const localeMatch = pathname.match(/^\/(\w{2})(\/|$)/);
+  const locale = localeMatch ? localeMatch[1] : "en";
+  const pathWithoutLoc = pathname.replace(/^\/\w{2}/, "");
 
-  const l = LABELS[locale as keyof typeof LABELS] ?? LABELS.en;
+  const l = LABELS[locale] || LABELS.en;
 
   const toggle = () => setOpen((v) => !v);
-  const close  = () => setOpen(false);
-  useEffect(() => close(), [pathname]);   // ferme le volet à chaque nav
-
+  const close = () => setOpen(false);
+  useEffect(() => close(), [pathname]);
 
   /* ───────── render ───────── */
   return (
     <>
       {/* Top bar */}
-      <header className="sticky top-0 z-50 flex items-center justify-between p-[48px]  w-full">
+      <header className="sticky top-0 z-50 flex items-center justify-between p-[48px] w-full">
         {/* Logo */}
         <Link
           href={`/${locale}`}
@@ -60,17 +81,17 @@ export default function Header() {
           aria-label="Toggle navigation menu"
           className="flex items-center gap-[12px] focus-visible:outline-none cursor-pointer"
         >
-          <span className="tracking-widest text-[12px] lg:text-[20px]">MENU</span>
+          <span className="tracking-widest text-[12px] lg:text-[20px]">
+            MENU
+          </span>
           {/* two-line burger */}
           <div className="flex flex-col justify-center gap-[8px] lg:gap-[8px] h-full w-[35px] lg:w-[45px]">
-            {/* ligne 1 */}
             <span
               className={clsx(
                 "relative h-[0.5px] w-full bg-white transition-transform duration-300",
                 open && "absolute right-0 top-0 translate-y-[8px] rotate-45"
               )}
             />
-            {/* ligne 2 */}
             <span
               className={clsx(
                 "relative h-[0.5px] w-full bg-white transition-transform duration-300",
@@ -95,7 +116,7 @@ export default function Header() {
             onClick={close}
             className="hover:text-lime-400"
           >
-            {l[key as keyof typeof l]}
+            {l[key]}
           </Link>
         ))}
 
@@ -108,7 +129,9 @@ export default function Header() {
               onClick={close}
               className={clsx(
                 "uppercase",
-                loc === locale ? "text-lime-400 underline" : "hover:text-lime-400"
+                loc === locale
+                  ? "text-lime-400 underline"
+                  : "hover:text-lime-400"
               )}
             >
               {loc}

@@ -1,12 +1,6 @@
 import React from "react";
 
-export default function SocialItem({
-  name,
-  link,
-}: {
-  name: string;
-  link: string;
-}) {
+export default function SocialItem({ name, link }) {
   return (
     <a
       href={link}
