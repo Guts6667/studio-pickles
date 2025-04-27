@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero({ hero }) {
   return (
-    <section className=" flex flex-col gap-[12px] min-h-[90vh] items-center justify-center bg-black text-center px-[12px] ">
+    <section className=" flex flex-col gap-[12px] h-[80vh] items-center justify-center bg-black text-center px-[12px] ">
       <h1 className="text-[14vw] lg:text-[10vw] ">
         <strong className="bg-[url('/img/bg-pickles.jpg')] bg-cover  bg-left bg-clip-text text-transparent text-bold">
           Pickles

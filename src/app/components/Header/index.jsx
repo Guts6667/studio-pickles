@@ -58,7 +58,7 @@ export default function Header() {
   return (
     <>
       {/* Top bar */}
-      <header className="sticky top-0 z-50 flex items-center justify-between p-[48px] w-full">
+      <header className="sticky top-0 z-50 flex items-center justify-between p-[24px] lg:p-[48px] w-full">
         {/* Logo */}
         <Link
           href={`/${locale}`}
