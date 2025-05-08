@@ -9,7 +9,7 @@ export default function FollowUs() {
     // },
     {
       name: "LinkedIn",
-      link: "https://www.linkedin.com/in/yourprofile",
+      link: "https://www.linkedin.com/company/studio-pickles/",
     },
     {
       name: "Whatsapp",

@@ -22,13 +22,13 @@ export default function ContactUs({contact}) {
             <h3 className="text-[16px]">CONTACT</h3>
             <div className="flex flex-col gap-[6px] text-[12px]">
               <Link href="mailto:contact@studiopickles.io">CONTACT@STUDIOPICKLES.IO</Link>
-              <Link href="tel:+33644167776">+33 6 44 16 77 76</Link>
+              <Link href="https://wa.me/+33644167776">WHATSAPP</Link>
             </div>
           </div>
           <div className="text-right lg:text-left flex flex-col gap-[24px]">
             <h3 className="text-[16px]">FOLLOW US</h3>
             <div className="flex flex-col gap-[6px] text-[12px]">
-              <Link href="tel:+33644167776">LINKEDIN</Link>
+              <Link href="https://www.linkedin.com/company/studio-pickles/" target="_blank">LINKEDIN</Link>
             </div>
           </div>
         </div>
