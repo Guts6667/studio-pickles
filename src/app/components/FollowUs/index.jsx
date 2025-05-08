@@ -3,10 +3,10 @@ import SocialItem from "../SocialItem";
 
 export default function FollowUs() {
   const socialItems = [
-    {
-      name: "Instagram",
-      link: "https://www.instagram.com/yourprofile",
-    },
+    // {
+    //   name: "Instagram",
+    //   link: "https://www.instagram.com/yourprofile",
+    // },
     {
       name: "LinkedIn",
       link: "https://www.linkedin.com/in/yourprofile",
@@ -17,7 +17,7 @@ export default function FollowUs() {
     },
     {
       name: "Mail",
-      link: "mailto:chambet.dev@gmail.com",
+      link: "mailto:contact@studiopickles.io",
     },
   ];
 

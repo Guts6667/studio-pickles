@@ -24,5 +24,26 @@
   },
   "ourClients": {
     "title": "Onze Klanten"
+  },
+  "contactUs": {
+    "title": "Neem contact met ons op",
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "Over ons",
+        "url": "/about"
+      },
+      {
+        "title": "Diensten",
+        "url": "/services"
+      },
+      {
+        "title": "Portfolio",
+        "url": "/portfolio"
+      }
+    ]
   }
 }

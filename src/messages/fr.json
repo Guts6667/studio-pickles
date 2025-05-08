@@ -12,9 +12,38 @@
   },
   "ourServices": {
     "title": "Nos Services",
-    "services": ["DESIGN CRÉATIF", "RECHERCHE & STRATÉGIE", "UX", "UI", "DÉVELOPPEMENT WEB", "DÉVELOPPEMENT D’APPLICATION", "RÉSOLUTION DE PROBLÈMES TECH"]
+    "services": [
+      "DESIGN CRÉATIF",
+      "RECHERCHE & STRATÉGIE",
+      "EXPÉRIENCE UTILISATEUR",
+      "INTERFACE UTILISATEUR",
+      "DÉVELOPPEMENT WEB",
+      "DÉVELOPPEMENT D’APPLICATION",
+      "RÉSOLUTION DE PROBLÈMES TECH"
+    ]
   },
   "ourClients": {
     "title": "Nos Clients"
+  },
+  "contactUs": {
+    "title": "Contacts",
+    "links": [
+      {
+        "title": "Accueil",
+        "url": "/"
+      },
+      {
+        "title": "À propos",
+        "url": "/about"
+      },
+      {
+        "title": "Services",
+        "url": "/services"
+      },
+      {
+        "title": "Portfolio",
+        "url": "/portfolio"
+      }
+    ]
   }
 }

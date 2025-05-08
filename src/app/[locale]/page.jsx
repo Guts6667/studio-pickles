@@ -18,7 +18,7 @@ export default async function LocaleHome({ params }) {
       <OurServices services={t.ourServices} />
       <OurClients clients={t.ourClients} />
       <FollowUs />
-      <ContactUs />
+      <ContactUs contact={t.contactUs} />
     </main>
   );
 }

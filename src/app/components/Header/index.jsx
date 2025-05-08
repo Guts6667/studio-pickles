@@ -125,7 +125,7 @@ export default function Header() {
           {Object.keys(LABELS).map((loc) => (
             <Link
               key={loc}
-              href={`/${loc}${pathWithoutLoc}`}
+              href={`/${loc}/${pathWithoutLoc}`}
               onClick={close}
               className={clsx(
                 "uppercase",
