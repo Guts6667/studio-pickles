@@ -28,6 +28,7 @@ html {
   scroll-behavior: smooth;
   font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
   background: var(--background);
+  overflow-x: hidden;
 }
 
 body {
@@ -37,6 +38,7 @@ body {
     radial-gradient(circle at top, rgba(183, 214, 79, 0.08), transparent 26%),
     var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
 }
 
 a {
@@ -54,6 +56,7 @@ button {
 
 .page-shell {
   width: min(100%, 1440px);
+  max-width: 100%;
   margin: 0 auto;
   padding-left: 12px;
   padding-right: 12px;
