@@ -2,45 +2,32 @@
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
-
-    /* -------- strict & transpile -------- */
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "incremental": true,
-
-    /* -------- module system -------- */
     "module": "esnext",
-    "moduleResolution": "node",      // ← recommandé pour Next
+    "moduleResolution": "node",
     "isolatedModules": true,
     "jsx": "preserve",
-
-    /* -------- ESM / interop -------- */
     "esModuleInterop": true,
     "resolveJsonModule": true,
-
-    /* -------- Path alias -------- */
-    "baseUrl": ".",                  // ← *** AJOUT ***
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]               // @/… pointe vers ./src/…
+      "@/*": ["src/*"]
     },
-
-    /* -------- Next-js plugin -------- */
     "plugins": [
       { "name": "next" }
     ]
   },
-
   "include": [
     "next-env.d.ts",
-    "next-env.d.js",
     "**/*.ts",
     "**/*.js",
     "**/*.tsx",
     "**/*.jsx",
-    ".next/types/**/*.ts",
-    ".next/types/**/*.js"
-, "src/app/lib/i18n.js"  ],
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }

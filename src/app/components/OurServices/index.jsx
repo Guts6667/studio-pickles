@@ -1,26 +1,34 @@
 import Image from "next/image";
-import React from "react";
 
-export default function OurServices({services}) 
+export default function OurServices({ title, services }) {
+  const heroService = services[0];
 
-{
   return (
-    <section className="h-fit gap-[12px] grid grid-cols-1 lg:grid-cols-2  bg-[url('/img/bg-pickles.jpg')] bg-linear-to-b from-black/0 to-black bg-black/50 bg-cover bg-center bg-no-repeat lg:bg-none">
-      {/* Dark Layer */}
-      <div className=" h-fit px-[12px]  py-[48px] bg-linear-to-b from-black/0 to-black bg-black/50 bg-cover bg-center bg-no-repeat lg:bg-none">
-        {/* Text */}
-        <div className=" flex flex-col gap-[48px] px-[24px]  border-l-[.5px] border-white/30">
-          <h2 className="text-[24px] 3xl:text-[32px]">[{services.title}]</h2>
-          <div className="flex flex-col gap-[12px] text-[20px] md:text-[32px] 3xl:text-[48px] h-fit ">
-            {services.services.map((service, index) => (
-              <p key={index}>{service}</p>
-            ))}
-          </div>
+    <section className="page-shell grid gap-3 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="section-frame flex flex-col gap-10 p-6 lg:p-8">
+        <span className="eyebrow">[{title}]</span>
+        <div className="flex flex-col gap-5">
+          {services.map((service) => (
+            <div key={service.key} className="flex flex-col gap-2 border-b border-white/10 pb-5 last:border-b-0 last:pb-0">
+              <h2 className="text-2xl leading-tight lg:text-4xl">{service.title}</h2>
+              <p className="body-muted max-w-2xl text-sm leading-7">
+                {service.intro}
+              </p>
+            </div>
+          ))}
         </div>
-        {/* Right Image */}
       </div>
-      {/* Image */}
-      <div className=" max-lg:hidden  h-[100%] overflow-hidden   py-[48px] px-[36px] bg-[url('/img/komarov-egor-oYpRcZt2xGk-unsplash.jpg')] bg-cover bg-center bg-no-repeat"></div>
+
+      <div className="section-frame relative min-h-[380px] overflow-hidden">
+        <Image
+          src={heroService.image}
+          alt={heroService.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/65" />
+      </div>
     </section>
   );
 }

@@ -1,39 +1,19 @@
-import React from "react";
 import SocialItem from "../SocialItem";
 
-export default function FollowUs() {
-  const socialItems = [
-    // {
-    //   name: "Instagram",
-    //   link: "https://www.instagram.com/yourprofile",
-    // },
-    {
-      name: "LinkedIn",
-      link: "https://www.linkedin.com/company/studio-pickles/",
-    },
-    {
-      name: "Whatsapp",
-      link: "https://wa.me/+33644167776",
-    },
-    {
-      name: "Mail",
-      link: "mailto:contact@studiopickles.io",
-    },
-  ];
+export default function FollowUs({ title, marquee, socialItems }) {
+  const repeatedTitle = marquee.repeat(12);
 
-  const title = "FOLLOW US-";
-  const repeatedTitle = title.repeat(40);
   return (
-    <section className="overflow-hidden py-[48px] flex flex-col gap-[48px]">
+    <section className="page-shell flex flex-col gap-8 overflow-hidden">
       <div className="relative">
-        <h2 className="text-[32px] whitespace-nowrap tracking-widest">
+        <p className="whitespace-nowrap text-[28px] uppercase tracking-[0.12em] text-white/18 lg:text-[44px]">
           {repeatedTitle}
-        </h2>
-        <div className="absolute z-10 h-full w-full top-0 left-0 inset-0 pointer-events-none bg-gradient-to-r from-black via-black/10 via-white/0 via-black/10  to-black" />
+        </p>
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-transparent to-black" />
       </div>
-      <div>
+      <div className="flex flex-col gap-px overflow-hidden rounded-[28px] border border-white/10 bg-white/10">
         {socialItems.map((item, index) => (
-          <SocialItem key={index} name={item.name} link={item.link} />
+          <SocialItem key={`${item.name}-${index}`} name={item.name} link={item.link} />
         ))}
       </div>
     </section>

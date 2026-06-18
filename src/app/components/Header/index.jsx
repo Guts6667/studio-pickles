@@ -1,142 +1,98 @@
-// src/components/Header.jsx
-
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { getNavItems, locales, getSiteContent } from "../../lib/site";
 
-const LABELS = {
-  en: {
-    home: "Home",
-    portfolio: "Portfolio",
-    services: "Services",
-    about: "About",
-    contact: "Contact",
-  },
-  fr: {
-    home: "Accueil",
-    portfolio: "Portfolio",
-    services: "Services",
-    about: "À propos",
-    contact: "Contact",
-  },
-  nl: {
-    home: "Thuis",
-    portfolio: "Portfolio",
-    services: "Diensten",
-    about: "Over ons",
-    contact: "Contact",
-  },
-};
-
-const LINKS = [
-  { key: "home", href: "/" },
-  { key: "portfolio", href: "/portfolio" },
-  { key: "services", href: "/services" },
-  { key: "about", href: "/about" },
-  { key: "contact", href: "/contact" },
-];
-
-export default function Header() {
-  /* ───────── state & helpers ───────── */
+export default function Header({ locale }) {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname() || "/";
-  const localeMatch = pathname.match(/^\/(\w{2})(\/|$)/);
-  const locale = localeMatch ? localeMatch[1] : "en";
-  const pathWithoutLoc = pathname.replace(/^\/\w{2}/, "");
+  const pathname = usePathname() || `/${locale}`;
+  const content = getSiteContent(locale);
+  const links = getNavItems(locale);
 
-  const l = LABELS[locale] || LABELS.en;
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
-  const toggle = () => setOpen((v) => !v);
-  const close = () => setOpen(false);
-  useEffect(() => close(), [pathname]);
+  const pathWithoutLocale = pathname.replace(/^\/(en|fr|nl)/, "") || "";
 
-  /* ───────── render ───────── */
   return (
     <>
-      {/* Top bar */}
-      <header className="sticky top-0 z-50 flex items-center justify-between p-[24px] lg:p-[48px] w-full">
-        {/* Logo */}
-        <Link
-          href={`/${locale}`}
-          className="flex items-center"
-          aria-label="PicklesStudio – home"
-        >
-          <Image
-            src="/img/logo-pickles.svg"
-            alt="PicklesStudio logo"
-            className="h-[12px] w-auto lg:h-[20px]"
-            width={140}
-            height={32}
-            priority
-          />
-        </Link>
+      <header className="sticky top-0 z-50 w-full">
+        <div className="page-shell flex items-center justify-between py-5 lg:py-8">
+          <Link href={`/${locale}`} className="flex items-center" aria-label="Pickles Studio home">
+            <Image
+              src="/img/logo-pickles.svg"
+              alt="Pickles Studio logo"
+              className="h-[13px] w-auto lg:h-[18px]"
+              width={140}
+              height={32}
+              priority
+            />
+          </Link>
 
-        {/* MENU button */}
-        <button
-          onClick={toggle}
-          aria-label="Toggle navigation menu"
-          className="flex items-center gap-[12px] focus-visible:outline-none cursor-pointer"
-        >
-          <span className="tracking-widest text-[12px] lg:text-[20px]">
-            MENU
-          </span>
-          {/* two-line burger */}
-          <div className="flex flex-col justify-center gap-[8px] lg:gap-[8px] h-full w-[35px] lg:w-[45px]">
-            <span
-              className={clsx(
-                "relative h-[0.5px] w-full bg-white transition-transform duration-300",
-                open && "absolute right-0 top-0 translate-y-[8px] rotate-45"
-              )}
-            />
-            <span
-              className={clsx(
-                "relative h-[0.5px] w-full bg-white transition-transform duration-300",
-                open && "absolute right-0 top-0 -rotate-45"
-              )}
-            />
-          </div>
-        </button>
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            className="flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-white/80 transition-colors hover:text-white lg:text-sm"
+            aria-expanded={open}
+            aria-label={open ? content.navigation.close : content.navigation.menu}
+          >
+            <span>{open ? content.navigation.close : content.navigation.menu}</span>
+            <div className="relative flex h-4 w-10 flex-col justify-center gap-2">
+              <span
+                className={clsx(
+                  "h-px w-full bg-white transition-transform duration-300",
+                  open && "translate-y-[4.5px] rotate-45"
+                )}
+              />
+              <span
+                className={clsx(
+                  "h-px w-full bg-white transition-transform duration-300",
+                  open && "-translate-y-[4.5px] -rotate-45"
+                )}
+              />
+            </div>
+          </button>
+        </div>
       </header>
 
-      {/* Slide-in panel */}
       <nav
         className={clsx(
-          "fixed inset-0 z-40 flex flex-col items-center justify-center gap-[24px] bg-black/90 text-[40px] tracking-wide transition-transform duration-300",
+          "fixed inset-0 z-40 flex min-h-screen flex-col justify-between bg-black/96 px-6 pb-8 pt-28 text-white transition-transform duration-300 lg:px-10 lg:pb-10 lg:pt-36",
           open ? "translate-x-0" : "translate-x-full"
         )}
       >
-        {LINKS.map(({ key, href }) => (
-          <Link
-            key={key}
-            href={`/${locale}${href === "/" ? "" : href}`}
-            onClick={close}
-            className="hover:text-lime-400"
-          >
-            {l[key]}
-          </Link>
-        ))}
+        <div className="page-shell flex h-full flex-col justify-between gap-10 px-0">
+          <div className="grid gap-4">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-4xl leading-none text-white/88 transition-colors hover:text-[var(--accent)] lg:text-7xl"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
 
-        {/* switcher EN / FR / NL */}
-        <div className="absolute bottom-8 flex gap-6 text-[20px]">
-          {Object.keys(LABELS).map((loc) => (
-            <Link
-              key={loc}
-              href={`/${loc}/${pathWithoutLoc}`}
-              onClick={close}
-              className={clsx(
-                "uppercase",
-                loc === locale
-                  ? "text-lime-400 underline"
-                  : "hover:text-lime-400"
-              )}
-            >
-              {loc}
-            </Link>
-          ))}
+          <div className="flex items-center gap-5 text-sm uppercase tracking-[0.15em] text-white/50">
+            {locales.map((item) => (
+              <Link
+                key={item}
+                href={`/${item}${pathWithoutLocale}`}
+                className={clsx(
+                  "transition-colors hover:text-white",
+                  item === locale && "text-[var(--accent)]"
+                )}
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
         </div>
       </nav>
     </>
