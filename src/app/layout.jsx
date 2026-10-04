@@ -18,7 +18,7 @@ export default async function RootLayout({ children }) {
   const requestedLocale = requestHeaders.get("x-site-locale");
   const locale = isValidLocale(requestedLocale) ? requestedLocale : defaultLocale;
   return (
-    <html lang={locale}>
+    <html lang={locale} data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );

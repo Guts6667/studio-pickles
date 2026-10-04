@@ -22,7 +22,7 @@ export default function Footer({ locale }) {
 
           <div className="grid gap-6 text-sm lg:grid-cols-3">
             <div className="min-w-0 flex flex-col gap-3">
-              <span className="uppercase tracking-[0.12em] text-black/45">
+              <span className="uppercase tracking-[0.12em] text-black/60">
                 {content.footer.sitemap}
               </span>
               {navItems.map((item) => (
@@ -33,7 +33,7 @@ export default function Footer({ locale }) {
             </div>
 
             <div className="min-w-0 flex flex-col gap-3">
-              <span className="uppercase tracking-[0.12em] text-black/45">
+              <span className="uppercase tracking-[0.12em] text-black/60">
                 {content.footer.contact}
               </span>
               <a className="break-all" href={`mailto:${business.email}`}>
@@ -44,7 +44,7 @@ export default function Footer({ locale }) {
             </div>
 
             <div className="min-w-0 flex flex-col gap-3">
-              <span className="uppercase tracking-[0.12em] text-black/45">
+              <span className="uppercase tracking-[0.12em] text-black/60">
                 {content.footer.legal}
               </span>
               <Link href={`/${locale}/legal-notice`}>{content.footer.legalNotice}</Link>
@@ -54,7 +54,7 @@ export default function Footer({ locale }) {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 text-xs text-black/45 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-3 text-xs text-black/60 lg:flex-row lg:items-center lg:justify-between">
           <p>© {new Date().getFullYear()} {business.name}. {content.footer.copyright}</p>
         </div>
       </div>

@@ -20,7 +20,7 @@ export default function ContactUs({ locale, title, navItems, sectionLabels }) {
           </a>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="min-w-0 flex flex-col gap-4">
-              <h3 className="text-sm uppercase tracking-[0.12em] text-white/45">
+              <h3 className="text-sm uppercase tracking-[0.12em] text-white/60">
                 {sectionLabels.sitemap}
               </h3>
               <div className="flex flex-col gap-2 text-sm uppercase">
@@ -32,7 +32,7 @@ export default function ContactUs({ locale, title, navItems, sectionLabels }) {
               </div>
             </div>
             <div className="min-w-0 flex flex-col gap-4">
-              <h3 className="text-sm uppercase tracking-[0.12em] text-white/45">
+              <h3 className="text-sm uppercase tracking-[0.12em] text-white/60">
                 {sectionLabels.contact}
               </h3>
               <div className="flex flex-col gap-2 text-sm">
@@ -44,7 +44,7 @@ export default function ContactUs({ locale, title, navItems, sectionLabels }) {
               </div>
             </div>
             <div className="min-w-0 flex flex-col gap-4">
-              <h3 className="text-sm uppercase tracking-[0.12em] text-white/45">
+              <h3 className="text-sm uppercase tracking-[0.12em] text-white/60">
                 {sectionLabels.follow}
               </h3>
               <div className="flex flex-col gap-2 text-sm">

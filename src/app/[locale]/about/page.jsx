@@ -62,7 +62,7 @@ export default async function AboutPage({ params }) {
       <section className="grid gap-4 lg:grid-cols-3">
         {content.aboutPage.blocks.map((block) => (
           <article key={block.title} className="section-frame flex flex-col gap-4 p-6">
-            <span className="eyebrow">{block.title}</span>
+            <h2 className="eyebrow">{block.title}</h2>
             <p className="body-muted text-sm leading-7">{block.body}</p>
           </article>
         ))}

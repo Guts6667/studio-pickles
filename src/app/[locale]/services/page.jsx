@@ -52,9 +52,9 @@ export default async function ServicesPage({ params }) {
           >
             <div className="flex flex-col gap-5 p-6 lg:p-8">
               <span className="eyebrow">[{service.title}]</span>
-              <p className="text-3xl leading-tight lg:text-5xl">
+              <h2 className="text-3xl leading-tight lg:text-5xl">
                 {service.title}
-              </p>
+              </h2>
               <p className="body-muted max-w-xl text-sm leading-7">
                 {service.intro}
               </p>

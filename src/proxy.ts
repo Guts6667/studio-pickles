@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { getProjectBySlug } from "./app/lib/site";
 
 const locales = ["fr", "en", "nl"];
 const defaultLocale = "fr";
@@ -12,6 +13,13 @@ export function proxy(request: NextRequest) {
     const requestHeaders = new Headers(request.headers);
     // Derive the document language from the URL, never from a visitor's header.
     requestHeaders.set("x-site-locale", locale);
+    const projectRoute = pathname.match(/^\/(?:fr|en|nl)\/portfolio\/([^/]+)\/?$/);
+    if (projectRoute && !getProjectBySlug(locale, projectRoute[1])) {
+      // Unmatched routes render the localized 404 as HTML, including without JavaScript.
+      const notFoundUrl = request.nextUrl.clone();
+      notFoundUrl.pathname = `/${locale}/404`;
+      return NextResponse.rewrite(notFoundUrl, { request: { headers: requestHeaders } });
+    }
     return NextResponse.next({ request: { headers: requestHeaders } });
   }
 

@@ -16,6 +16,7 @@ export default function OurWorkItem({ item, locale }) {
         className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         width={1200}
         height={900}
+        sizes="(min-width: 1440px) 464px, (min-width: 1280px) calc((100vw - 48px) / 3), (min-width: 1024px) calc((100vw - 36px) / 2), calc(100vw - 24px)"
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/90" />

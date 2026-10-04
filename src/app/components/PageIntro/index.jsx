@@ -3,7 +3,7 @@ export default function PageIntro({ eyebrow, title, intro, stats = [] }) {
     <section className="section-frame flex flex-col gap-8 p-6 lg:p-8">
       <div className="flex flex-col gap-5">
         <span className="eyebrow">{eyebrow}</span>
-        <h1 className="balance-text max-w-5xl text-5xl leading-none lg:text-7xl">
+        <h1 className="balance-text max-w-5xl break-words text-4xl leading-none sm:text-5xl lg:text-7xl">
           {title}
         </h1>
         {intro ? (

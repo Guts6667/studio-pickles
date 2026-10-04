@@ -17,7 +17,7 @@ yarn dev
 Le serveur de développement est accessible sur [localhost:3000](http://localhost:3000). Pour vérifier une version destinée à la publication :
 
 ```bash
-yarn check
+yarn run check
 yarn build
 yarn start
 ```

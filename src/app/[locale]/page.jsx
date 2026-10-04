@@ -57,6 +57,7 @@ export default async function LocaleHome({ params }) {
         services={getServices(locale)}
       />
       <OurClients
+        locale={locale}
         title={t.home.clientsTitle}
         intro={t.home.clientsIntro}
         clients={getClientNames()}

@@ -19,7 +19,9 @@ export async function generateMetadata({ params }) {
   const { locale, slug } = await params;
   const project = getProjectBySlug(locale, slug);
 
-  if (!project) notFound();
+  if (!project) {
+    return { title: "404", robots: { index: false, follow: true } };
+  }
 
   return buildPageMetadata(locale, {
     title: project.title,
@@ -111,18 +113,18 @@ export default async function ProjectDetailPage({ params }) {
 
       <section className="grid gap-6 lg:grid-cols-3">
         <article className="section-frame flex flex-col gap-4 p-6 lg:col-span-1">
-          <span className="eyebrow">{content.projectPage.challenge}</span>
+          <h2 className="eyebrow">{content.projectPage.challenge}</h2>
           <p className="body-muted text-sm leading-7">{project.challenge}</p>
         </article>
         <article className="section-frame flex flex-col gap-4 p-6 lg:col-span-2">
-          <span className="eyebrow">{content.projectPage.solution}</span>
+          <h2 className="eyebrow">{content.projectPage.solution}</h2>
           <p className="body-muted text-sm leading-7">{project.solution}</p>
         </article>
       </section>
 
       {project.impactPoints?.length ? (
         <section className="section-frame flex flex-col gap-5 p-6">
-          <span className="eyebrow">{content.projectPage.impact}</span>
+          <h2 className="eyebrow">{content.projectPage.impact}</h2>
           <div className="grid gap-3 md:grid-cols-3">
             {project.impactPoints.map((item) => (
               <div
@@ -137,7 +139,7 @@ export default async function ProjectDetailPage({ params }) {
       ) : null}
 
       <section className="flex flex-col gap-5">
-        <span className="eyebrow">{content.projectPage.gallery}</span>
+        <h2 className="eyebrow">{content.projectPage.gallery}</h2>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {project.gallery.map((image, index) => (
             <div

@@ -19,8 +19,8 @@ export default async function ContactPage({ params }) {
 
   return (
     <main className="page-shell flex flex-col gap-10 pb-20 pt-8 lg:gap-14 lg:pt-12">
-      <section className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="flex flex-col gap-5">
+      <section className="grid grid-cols-1 gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="flex min-w-0 flex-col gap-5">
           <span className="eyebrow">{content.contactPage.eyebrow}</span>
           <h1 className="balance-text text-5xl leading-none lg:text-7xl">
             {content.contactPage.title}
@@ -28,17 +28,17 @@ export default async function ContactPage({ params }) {
           <p className="body-muted max-w-2xl text-base leading-relaxed lg:text-lg">
             {content.contactPage.intro}
           </p>
-          <p className="text-sm uppercase tracking-[0.12em] text-white/45">
+          <p className="text-sm uppercase tracking-[0.12em] text-white/60">
             {content.contactPage.availability}
           </p>
         </div>
 
-        <div className="section-frame flex flex-col gap-6 p-6 lg:p-8">
+        <div className="section-frame flex min-w-0 flex-col gap-6 p-6 lg:p-8">
           <div className="flex flex-col gap-2">
             <span className="eyebrow">{content.contactPage.emailLabel}</span>
             <a
               href={`mailto:${business.email}`}
-              className="text-2xl leading-tight hover:text-[var(--accent)] lg:text-4xl"
+              className="break-words text-2xl leading-tight hover:text-[var(--accent)] lg:text-4xl"
             >
               {business.email}
             </a>
