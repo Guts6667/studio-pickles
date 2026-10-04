@@ -6,7 +6,7 @@ export default function FollowUs({ title, marquee, socialItems }) {
   return (
     <section className="page-shell flex flex-col gap-8 overflow-hidden">
       <h2 className="sr-only">{title}</h2>
-      <div className="relative" aria-hidden="true">
+      <div className="relative min-w-0 overflow-hidden" aria-hidden="true">
         <p className="whitespace-nowrap text-[28px] uppercase tracking-[0.12em] text-white/18 lg:text-[44px]">
           {repeatedTitle}
         </p>

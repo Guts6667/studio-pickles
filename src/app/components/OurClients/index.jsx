@@ -1,14 +1,6 @@
 import InfiniteTextSlider from "../InfiniteTextSlider";
 
-const motionLabels = {
-  fr: { pause: "Mettre en pause le défilement", resume: "Reprendre le défilement" },
-  en: { pause: "Pause scrolling", resume: "Resume scrolling" },
-  nl: { pause: "Pauzeer de beweging", resume: "Hervat de beweging" },
-};
-
-export default function OurClients({ title, intro, clients, locale = "fr" }) {
-  const labels = motionLabels[locale] || motionLabels.fr;
-
+export default function OurClients({ title, intro, clients }) {
   return (
     <section className="page-shell flex flex-col gap-8">
       <div className="flex flex-col gap-4 px-1">
@@ -21,11 +13,7 @@ export default function OurClients({ title, intro, clients, locale = "fr" }) {
       </div>
 
       <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.02]">
-        <InfiniteTextSlider
-          clients={clients}
-          pauseLabel={labels.pause}
-          resumeLabel={labels.resume}
-        />
+        <InfiniteTextSlider clients={clients} />
       </div>
     </section>
   );

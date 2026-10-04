@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import Marquee from "react-fast-marquee";
 
 const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
@@ -19,12 +19,7 @@ function getServerReducedMotionSnapshot() {
   return false;
 }
 
-export default function InfiniteTextSlider({
-  clients = [],
-  pauseLabel = "Mettre en pause le défilement",
-  resumeLabel = "Reprendre le défilement",
-}) {
-  const [paused, setPaused] = useState(false);
+export default function InfiniteTextSlider({ clients = [] }) {
   const reducedMotion = useSyncExternalStore(
     subscribeToReducedMotion,
     getReducedMotionSnapshot,
@@ -53,7 +48,6 @@ export default function InfiniteTextSlider({
             </div>
           ) : (
             <Marquee
-              play={!paused}
               pauseOnHover
               speed={38}
               gradient={false}
@@ -65,17 +59,6 @@ export default function InfiniteTextSlider({
         </div>
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-transparent to-black" />
       </div>
-      {!reducedMotion && clients.length > 1 ? (
-        <div className="flex justify-end px-4 pb-4">
-          <button
-            type="button"
-            onClick={() => setPaused((value) => !value)}
-            className="rounded-full border border-white/20 px-4 py-2 text-xs text-white/80 transition-colors hover:border-white/50 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-          >
-            {paused ? resumeLabel : pauseLabel}
-          </button>
-        </div>
-      ) : null}
     </>
   );
 }
