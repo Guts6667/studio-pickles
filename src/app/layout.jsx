@@ -5,9 +5,9 @@ import { defaultLocale, isValidLocale } from "./lib/site";
 
 export const metadata = {
   metadataBase: siteUrl || undefined,
-  title: { default: "Pickles Studio — Design et création de sites à Montpellier", template: "%s | Pickles Studio" },
+  title: { default: "Pickles Studio — Agence web à Montpellier, Paris et Rotterdam", template: "%s | Pickles Studio" },
   description:
-    "Pickles Studio accompagne les entreprises de Montpellier en stratégie produit, design UX/UI, création de sites internet et applications web.",
+    "Sites web, design UX/UI et applications : Pickles Studio accompagne les entreprises à Montpellier, Paris et Rotterdam, en France et aux Pays-Bas.",
   applicationName: "Pickles Studio",
   robots: { index: publicSiteConfigured, follow: publicSiteConfigured },
   verification: { google: process.env.GOOGLE_SITE_VERIFICATION || undefined },

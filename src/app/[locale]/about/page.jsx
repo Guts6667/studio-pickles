@@ -4,19 +4,19 @@ import { buildPageMetadata } from "../../lib/seo";
 
 const pageMetadata = {
   fr: {
-    title: "Le studio web et design à Montpellier",
+    title: "Le studio : stratégie, design et développement",
     description:
-      "Découvrez Pickles Studio et sa manière de concevoir des sites web et produits digitaux pour les entreprises à Montpellier et à l’international.",
+      "Découvrez Pickles Studio et son approche des sites web et produits digitaux pour les entreprises à Montpellier, Paris, Rotterdam et à l’international.",
   },
   en: {
     title: "About the studio: strategy, design & development",
     description:
-      "Meet Pickles Studio and discover how we design and build websites and digital products for businesses in Montpellier and internationally.",
+      "Meet Pickles Studio and discover our approach to websites and digital products for businesses in Montpellier, Paris, Rotterdam and internationally.",
   },
   nl: {
     title: "Over de studio: strategie, design en ontwikkeling",
     description:
-      "Maak kennis met Pickles Studio en onze aanpak voor websites en digitale producten voor bedrijven in Montpellier en daarbuiten.",
+      "Maak kennis met Pickles Studio en onze aanpak voor websites en digitale producten voor bedrijven in Montpellier, Parijs, Rotterdam en internationaal.",
   },
 };
 

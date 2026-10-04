@@ -46,15 +46,15 @@ Le fichier `.env.example` documente les options principales, à renseigner dans 
 
 Les coordonnées, l’identité de l’entreprise et l’hébergeur sont centralisés dans `src/app/lib/business.js`, avec des valeurs modifiables par variables d’environnement. Les informations `NEXT_PUBLIC_` sont publiques : ne jamais y placer de secret.
 
-Les mentions légales identifient **Rayan Chambet EI**, entrepreneur individuel au régime micro-entreprise, avec le SIREN **820 401 990**, le SIRET **820 401 990 00024** et l’adresse professionnelle **59 rue de Ponthieu, 75008 Paris**. Montpellier est présenté comme une zone d’intervention pour les services web et digitaux. Le numéro de TVA peut être renseigné avec `NEXT_PUBLIC_BUSINESS_VAT_NUMBER` s’il s’applique. L’identité de l’hébergeur Vercel est documentée dans sa [politique de confidentialité](https://vercel.com/legal/privacy-notice) et sa [page de contact juridique](https://vercel.com/legal/dmca-policy).
+Les mentions légales identifient **Rayan Chambet EI**, entrepreneur individuel au régime micro-entreprise, avec le SIREN **820 401 990**, le SIRET **820 401 990 00024** et l’adresse professionnelle **59 rue de Ponthieu, 75008 Paris**. Montpellier, Paris et Rotterdam sont présentées comme des zones d’intervention pour les services web et digitaux. Le numéro de TVA peut être renseigné avec `NEXT_PUBLIC_BUSINESS_VAT_NUMBER` s’il s’applique. L’identité de l’hébergeur Vercel est documentée dans sa [politique de confidentialité](https://vercel.com/legal/privacy-notice) et sa [page de contact juridique](https://vercel.com/legal/dmca-policy).
 
 ## Référencement Google
 
-Le site fournit des titres et descriptions par page, des URL canoniques, les alternatives de langue, des données structurées, [robots.txt](https://www.studiopickles.io/robots.txt) et un [sitemap XML](https://www.studiopickles.io/sitemap.xml). Montpellier apparaît dans les contenus et la zone desservie des données structurées.
+Le site fournit des titres et descriptions par page, des URL canoniques, les alternatives de langue, des données structurées, [robots.txt](https://www.studiopickles.io/robots.txt) et un [sitemap XML](https://www.studiopickles.io/sitemap.xml). Montpellier, Paris et Rotterdam apparaissent dans les contenus et la zone desservie des données structurées.
 
-Le fichier `public/google7e22f4b13867d8b5.html`, fourni par Google Search Console, permet de valider la propriété **Préfixe d’URL** `https://www.studiopickles.io/`. Conserver ce fichier après la validation pour maintenir le statut de propriétaire. Cette méthode ne nécessite pas de variable `GOOGLE_SITE_VERIFICATION`.
+La propriété **Préfixe d’URL** `https://www.studiopickles.io/` a été validée dans Google Search Console le 4 octobre 2026, et `sitemap.xml` a été envoyé. Le fichier `public/google7e22f4b13867d8b5.html`, fourni par Google, doit être conservé pour maintenir le statut de propriétaire. Cette méthode ne nécessite pas de variable `GOOGLE_SITE_VERIFICATION`. L’envoi du sitemap ne confirme pas à lui seul sa lecture ni l’indexation : consulter l’état dans Search Console.
 
-Après publication :
+Pour configurer une autre propriété ou consulter les résultats :
 
 1. Ajouter le site dans Google Search Console. Pour une propriété **Domaine** `studiopickles.io`, ajouter le TXT demandé dans les DNS Squarespace. Pour une propriété **Préfixe d’URL** `https://www.studiopickles.io/`, renseigner le code HTML dans `GOOGLE_SITE_VERIFICATION`, redéployer puis valider la propriété.
 2. Envoyer `sitemap.xml` dans la rubrique **Sitemaps**. Google explique cette étape dans son [guide des sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).

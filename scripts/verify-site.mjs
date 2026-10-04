@@ -18,6 +18,8 @@ assert.equal(new URL(root.response.headers.get("location"), origin).pathname, "/
 const { html: robots } = await read("/robots.txt");
 assert.match(robots, /Allow: \/(?:\r?\n|$)/);
 assert.ok(robots.includes(`${canonicalOrigin}/sitemap.xml`));
+const { html: verification } = await read("/google7e22f4b13867d8b5.html");
+assert.equal(verification.trim(), "google-site-verification: google7e22f4b13867d8b5.html");
 const { html: sitemap } = await read("/sitemap.xml");
 assert.ok(sitemap.includes(namespaces.sitemap));
 const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
@@ -44,13 +46,17 @@ for (const locale of ["fr", "en", "nl"]) {
     assert.ok(title && !titles.has(title), `${path}: unique title`);
     titles.add(title);
     if (["", "/services", "/contact"].includes(page)) {
-      assert.ok(html.includes("Montpellier"), `${path}: service area`);
+      for (const city of ["Montpellier", locale === "nl" ? "Parijs" : "Paris", "Rotterdam"]) {
+        assert.ok(html.includes(city), `${path}: service area ${city}`);
+      }
     }
     if (!page) {
       const json = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)?.[1];
       assert.ok(json, `${path}: business structured data`);
       const graph = JSON.parse(json)["@graph"];
-      assert.ok(graph.some((entity) => entity.areaServed?.some((area) => area.name === "Montpellier")));
+      for (const city of ["Montpellier", "Paris", "Rotterdam"]) {
+        assert.ok(graph.some((entity) => entity.areaServed?.some((area) => area.name === city)), `${path}: structured service area ${city}`);
+      }
       assert.ok(graph.some((entity) => entity.address?.addressLocality === "Paris"));
     }
     if (page === "/legal-notice") {

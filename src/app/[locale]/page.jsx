@@ -17,19 +17,19 @@ import {
 
 const pageMetadata = {
   fr: {
-    title: "Agence web et design à Montpellier",
+    title: "Agence web à Montpellier, Paris et Rotterdam",
     description:
-      "Pickles Studio accompagne les entreprises à Montpellier : création de sites web, design UX/UI, stratégie produit et développement d’applications.",
+      "Sites web, design UX/UI et applications : Pickles Studio accompagne les entreprises à Montpellier, Paris et Rotterdam, en France et aux Pays-Bas.",
   },
   en: {
-    title: "Web design & development in Montpellier",
+    title: "Web design in Montpellier, Paris & Rotterdam",
     description:
-      "Pickles Studio helps businesses in Montpellier with website creation, UX/UI design, product strategy and web application development.",
+      "Websites, UX/UI design and applications: Pickles Studio supports businesses in Montpellier, Paris and Rotterdam, across France and the Netherlands.",
   },
   nl: {
-    title: "Webdesign en ontwikkeling in Montpellier",
+    title: "Webdesign in Montpellier, Parijs en Rotterdam",
     description:
-      "Pickles Studio helpt bedrijven in Montpellier met websites, UX/UI-design, productstrategie en de ontwikkeling van webapplicaties.",
+      "Websites, UX/UI-design en applicaties: Pickles Studio begeleidt bedrijven in Montpellier, Parijs en Rotterdam, in Frankrijk en Nederland.",
   },
 };
 

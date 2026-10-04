@@ -2,6 +2,10 @@ import { absoluteUrl, business, publicSiteConfigured } from "./business";
 import { getServices, isValidLocale, locales } from "./site";
 
 const openGraphLocales = { en: "en_GB", fr: "fr_FR", nl: "nl_NL" };
+const serviceCountryNames = {
+  France: { fr: "France", en: "France", nl: "Frankrijk" },
+  Netherlands: { fr: "Pays-Bas", en: "Netherlands", nl: "Nederland" },
+};
 
 export function getLocalizedAlternates(path = "") {
   if (!publicSiteConfigured) return undefined;
@@ -62,8 +66,8 @@ export function buildBusinessStructuredData(locale) {
   const url = absoluteUrl("/");
   const organizationId = absoluteUrl("/#organization");
   const areaServed = business.serviceAreas.map((name) => ({
-    "@type": name === "France" ? "Country" : "City",
-    name,
+    "@type": serviceCountryNames[name] ? "Country" : "City",
+    name: serviceCountryNames[name]?.[locale] || name,
   }));
   const organization = {
     "@type": "Organization",

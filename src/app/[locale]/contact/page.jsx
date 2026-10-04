@@ -6,7 +6,7 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
   const content = getSiteContent(locale);
   return buildPageMetadata(locale, {
-    title: `${content.contactPage.eyebrow} — Montpellier`,
+    title: `${content.contactPage.eyebrow} — Montpellier, ${locale === "nl" ? "Parijs en" : locale === "fr" ? "Paris et" : "Paris &"} Rotterdam`,
     description: content.contactPage.intro,
     path: "/contact",
   });

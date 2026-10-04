@@ -15,7 +15,7 @@ const siteContent = {
   "en": {
     "meta": {
       "title": "Pickles Studio",
-      "description": "Website creation, UX/UI design and application development for businesses in Montpellier. Pickles Studio supports your project from strategy to launch."
+      "description": "Websites, UX/UI design and applications for businesses in Montpellier, Paris and Rotterdam. Pickles Studio supports your project from strategy to launch."
     },
     "navigation": {
       "menu": "Menu",
@@ -28,14 +28,14 @@ const siteContent = {
       "work": "Work"
     },
     "common": {
-      "cities": "Montpellier · France · International",
+      "cities": "Montpellier · Paris · Rotterdam",
       "discover": "Discover the case study",
       "liveSite": "Visit the client website",
       "backToPortfolio": "Back to portfolio"
     },
     "hero": {
       "kicker": "Web design & digital products",
-      "sub": "Websites, design and applications for businesses in Montpellier and beyond.",
+      "sub": "Websites, design and applications for businesses in Montpellier, Paris and Rotterdam.",
       "headline": "We turn your ideas into clear, distinctive websites and digital products, from strategy to launch.",
       "ctaPrimary": "Start a project",
       "ctaSecondary": "View our work"
@@ -52,7 +52,7 @@ const siteContent = {
     "servicesPage": {
       "eyebrow": "Services",
       "title": "From strategy to launch, we build products with taste and traction.",
-      "intro": "Website creation, UX/UI design and web or mobile application development: Pickles Studio helps businesses in Montpellier and beyond define and build their digital presence.",
+      "intro": "Pickles Studio supports businesses in Montpellier, Paris and Rotterdam, from strategy to launch: website creation, UX/UI design and web or mobile application development.",
       "cta": "Let’s discuss your project"
     },
     "aboutPage": {
@@ -76,7 +76,7 @@ const siteContent = {
         },
         {
           "title": "Who we work with",
-          "body": "We support founders, brands and teams in Montpellier, across France and internationally. Projects can be coordinated remotely through direct communication and regular reviews."
+          "body": "We work with founders, brands and teams in Montpellier, Paris and Rotterdam, as well as remotely on international projects. Direct communication and regular reviews keep each project moving."
         }
       ]
     },
@@ -90,7 +90,7 @@ const siteContent = {
       "socialLabel": "Follow us",
       "availability": "Tell us about your goals, timeline and project. Contact us by email or WhatsApp to start the conversation.",
       "locationLabel": "Service area",
-      "location": "Montpellier, France and international projects delivered remotely."
+      "location": "Supporting projects in Montpellier, Paris and Rotterdam, and remotely worldwide."
     },
     "portfolioPage": {
       "eyebrow": "Portfolio",
@@ -132,7 +132,7 @@ const siteContent = {
         "sections": [
           {
             "title": "Contact",
-            "body": `For questions about your personal data, write to ${business.email}. The studio supports digital projects for businesses in Montpellier, France and internationally.`
+            "body": `For questions about your personal data, write to ${business.email}. The studio supports digital projects for businesses in Montpellier, Paris and Rotterdam, and remotely worldwide.`
           },
           {
             "title": "Browsing the website",
@@ -180,7 +180,7 @@ const siteContent = {
       }
     },
     "footer": {
-      "description": "Website creation, UX/UI design and application development for businesses in Montpellier, France and beyond.",
+      "description": "Websites, UX/UI design and application development for projects in Montpellier, Paris and Rotterdam.",
       "sitemap": "Sitemap",
       "contact": "Contact",
       "legal": "Legal information",
@@ -193,7 +193,7 @@ const siteContent = {
   "fr": {
     "meta": {
       "title": "Pickles Studio",
-      "description": "Création de sites web, design UX/UI et développement d’applications pour les entreprises à Montpellier. Pickles Studio accompagne votre projet de la stratégie au lancement."
+      "description": "Sites web, design UX/UI et applications pour les entreprises à Montpellier, Paris et Rotterdam. Pickles Studio vous accompagne de la stratégie au lancement."
     },
     "navigation": {
       "menu": "Menu",
@@ -206,14 +206,14 @@ const siteContent = {
       "work": "Réalisations"
     },
     "common": {
-      "cities": "Montpellier · France · International",
+      "cities": "Montpellier · Paris · Rotterdam",
       "discover": "Découvrir le projet",
       "liveSite": "Visiter le site du client",
       "backToPortfolio": "Retour au portfolio"
     },
     "hero": {
       "kicker": "Création web & produits digitaux",
-      "sub": "Sites web, design et applications pour les entreprises de Montpellier et au-delà.",
+      "sub": "Sites web, design et applications pour vos projets à Montpellier, Paris et Rotterdam.",
       "headline": "Nous transformons vos idées en sites web et produits digitaux clairs et singuliers, de la stratégie au lancement.",
       "ctaPrimary": "Démarrer un projet",
       "ctaSecondary": "Voir nos projets"
@@ -230,7 +230,7 @@ const siteContent = {
     "servicesPage": {
       "eyebrow": "Services",
       "title": "De la stratégie au lancement, nous construisons des produits avec exigence et impact.",
-      "intro": "Création de sites web, design UX/UI et développement d’applications web ou mobiles : Pickles Studio accompagne les entreprises de Montpellier et au-delà dans leur présence digitale.",
+      "intro": "Pickles Studio accompagne les entreprises à Montpellier, Paris et Rotterdam, de la stratégie à la mise en ligne : création de sites web, design UX/UI et applications web ou mobiles.",
       "cta": "Parlons de votre projet"
     },
     "aboutPage": {
@@ -254,7 +254,7 @@ const siteContent = {
         },
         {
           "title": "Qui nous accompagnons",
-          "body": "Nous accompagnons les fondateurs, les marques et les équipes à Montpellier, en France et à l’international. Les projets peuvent être menés à distance, avec des échanges directs et des points réguliers."
+          "body": "Nous accompagnons les fondateurs, les marques et les équipes à Montpellier, Paris et Rotterdam, ainsi qu’à distance à l’international. Nous privilégions des échanges directs et des points réguliers pour faire avancer chaque projet."
         }
       ]
     },
@@ -268,7 +268,7 @@ const siteContent = {
       "socialLabel": "Suivez-nous",
       "availability": "Présentez-nous vos objectifs, votre calendrier et votre projet. Contactez-nous par email ou WhatsApp pour commencer l’échange.",
       "locationLabel": "Zone d’intervention",
-      "location": "Montpellier, France et projets internationaux accompagnés à distance."
+      "location": "Accompagnement à Montpellier, Paris et Rotterdam, et à distance à l’international."
     },
     "portfolioPage": {
       "eyebrow": "Portfolio",
@@ -310,7 +310,7 @@ const siteContent = {
         "sections": [
           {
             "title": "Contact",
-            "body": `Pour toute question relative à vos données personnelles, écrivez à ${business.email}. Le studio accompagne des projets digitaux pour les entreprises de Montpellier, en France et à l’international.`
+            "body": `Pour toute question relative à vos données personnelles, écrivez à ${business.email}. Le studio accompagne les projets digitaux des entreprises à Montpellier, Paris et Rotterdam, et à distance à l’international.`
           },
           {
             "title": "Navigation sur le site",
@@ -358,7 +358,7 @@ const siteContent = {
       }
     },
     "footer": {
-      "description": "Création de sites web, design UX/UI et développement d’applications pour les entreprises de Montpellier, en France et à l’international.",
+      "description": "Création de sites web, design UX/UI et développement d’applications : nous accompagnons vos projets à Montpellier, Paris et Rotterdam.",
       "sitemap": "Plan du site",
       "contact": "Contact",
       "legal": "Informations légales",
@@ -371,7 +371,7 @@ const siteContent = {
   "nl": {
     "meta": {
       "title": "Pickles Studio",
-      "description": "Websites, UX/UI-design en applicatieontwikkeling voor bedrijven in Montpellier. Pickles Studio begeleidt je project van strategie tot lancering."
+      "description": "Websites, UX/UI-design en applicaties voor bedrijven in Montpellier, Parijs en Rotterdam. Pickles Studio begeleidt je project van strategie tot lancering."
     },
     "navigation": {
       "menu": "Menu",
@@ -384,14 +384,14 @@ const siteContent = {
       "work": "Projecten"
     },
     "common": {
-      "cities": "Montpellier · Frankrijk · Internationaal",
+      "cities": "Montpellier · Paris · Rotterdam",
       "discover": "Bekijk de case study",
       "liveSite": "Bekijk de website van de klant",
       "backToPortfolio": "Terug naar portfolio"
     },
     "hero": {
       "kicker": "Webdesign & digitale producten",
-      "sub": "Websites, design en applicaties voor bedrijven in Montpellier en daarbuiten.",
+      "sub": "Websites, design en applicaties voor bedrijven in Montpellier, Parijs en Rotterdam.",
       "headline": "We vertalen je ideeën naar heldere, onderscheidende websites en digitale producten, van strategie tot lancering.",
       "ctaPrimary": "Start een project",
       "ctaSecondary": "Bekijk ons werk"
@@ -408,7 +408,7 @@ const siteContent = {
     "servicesPage": {
       "eyebrow": "Services",
       "title": "Van strategie tot launch bouwen we producten met smaak en tractie.",
-      "intro": "Websites, UX/UI-design en web- of mobiele applicaties: Pickles Studio helpt bedrijven in Montpellier en daarbuiten hun digitale aanwezigheid vorm te geven en te bouwen.",
+      "intro": "Pickles Studio begeleidt bedrijven in Montpellier, Parijs en Rotterdam, van strategie tot lancering: websites, UX/UI-design en web- of mobiele applicaties.",
       "cta": "Laten we je project bespreken"
     },
     "aboutPage": {
@@ -432,7 +432,7 @@ const siteContent = {
         },
         {
           "title": "Met wie we werken",
-          "body": "We begeleiden ondernemers, merken en teams in Montpellier, Frankrijk en internationaal. Projecten kunnen op afstand worden uitgevoerd, met direct contact en regelmatige overlegmomenten."
+          "body": "We begeleiden ondernemers, merken en teams in Montpellier, Parijs en Rotterdam, en werken ook op afstand aan internationale projecten. Direct contact en regelmatige overlegmomenten helpen elk project vooruit."
         }
       ]
     },
@@ -446,7 +446,7 @@ const siteContent = {
       "socialLabel": "Volg ons",
       "availability": "Vertel ons over je doelen, planning en project. Neem contact op via email of WhatsApp om het gesprek te beginnen.",
       "locationLabel": "Werkgebied",
-      "location": "Montpellier, Frankrijk en internationale projecten op afstand."
+      "location": "Projectbegeleiding in Montpellier, Parijs en Rotterdam, en op afstand wereldwijd."
     },
     "portfolioPage": {
       "eyebrow": "Portfolio",
@@ -488,7 +488,7 @@ const siteContent = {
         "sections": [
           {
             "title": "Contact",
-            "body": `Voor vragen over je persoonsgegevens kun je schrijven naar ${business.email}. De studio begeleidt digitale projecten voor bedrijven in Montpellier, Frankrijk en internationaal.`
+            "body": `Voor vragen over je persoonsgegevens kun je schrijven naar ${business.email}. De studio begeleidt digitale projecten voor bedrijven in Montpellier, Parijs en Rotterdam, en op afstand wereldwijd.`
           },
           {
             "title": "De website bezoeken",
@@ -536,7 +536,7 @@ const siteContent = {
       }
     },
     "footer": {
-      "description": "Websites, UX/UI-design en applicatieontwikkeling voor bedrijven in Montpellier, Frankrijk en daarbuiten.",
+      "description": "Websites, UX/UI-design en applicatieontwikkeling voor projecten in Montpellier, Parijs en Rotterdam.",
       "sitemap": "Sitemap",
       "contact": "Contact",
       "legal": "Juridische informatie",

@@ -6,19 +6,19 @@ import { buildPageMetadata } from "../../lib/seo";
 
 const pageMetadata = {
   fr: {
-    title: "Création de sites web et design UX/UI à Montpellier",
+    title: "Sites web et UX/UI à Montpellier, Paris et Rotterdam",
     description:
-      "Découvrez les services de Pickles Studio à Montpellier : sites vitrines, applications web, design UX/UI et stratégie pour vos projets digitaux.",
+      "Sites vitrines, applications web, design UX/UI et stratégie : découvrez les services de Pickles Studio à Montpellier, Paris et Rotterdam.",
   },
   en: {
-    title: "Website development & UX/UI design in Montpellier",
+    title: "Websites & UX/UI in Montpellier, Paris & Rotterdam",
     description:
-      "Explore Pickles Studio’s services in Montpellier: business websites, web applications, UX/UI design and strategy for digital products.",
+      "Business websites, web applications, UX/UI design and product strategy: explore Pickles Studio’s services in Montpellier, Paris and Rotterdam.",
   },
   nl: {
-    title: "Websites en UX/UI-design in Montpellier",
+    title: "Websites en UX/UI in Montpellier, Parijs en Rotterdam",
     description:
-      "Ontdek de diensten van Pickles Studio in Montpellier: bedrijfswebsites, webapplicaties, UX/UI-design en strategie voor digitale producten.",
+      "Bedrijfswebsites, webapplicaties, UX/UI-design en productstrategie: ontdek de diensten van Pickles Studio in Montpellier, Parijs en Rotterdam.",
   },
 };
 

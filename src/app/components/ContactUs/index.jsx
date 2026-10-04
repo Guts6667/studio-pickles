@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { getSocialLinks } from "../../lib/site";
+import { getSiteContent, getSocialLinks } from "../../lib/site";
 import { business } from "../../lib/business";
 
 export default function ContactUs({ locale, title, navItems, sectionLabels }) {
   const socialItems = getSocialLinks(locale);
+  const content = getSiteContent(locale);
 
   return (
     <section className="page-shell">
@@ -39,7 +40,7 @@ export default function ContactUs({ locale, title, navItems, sectionLabels }) {
                   {business.email}
                 </a>
                 <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a>
-                <p>Montpellier · France</p>
+                <p>{content.contactPage.location}</p>
               </div>
             </div>
             <div className="min-w-0 flex flex-col gap-4">
