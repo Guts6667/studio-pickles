@@ -52,6 +52,8 @@ Les mentions légales identifient **Rayan Chambet EI**, entrepreneur individuel 
 
 Le site fournit des titres et descriptions par page, des URL canoniques, les alternatives de langue, des données structurées, [robots.txt](https://www.studiopickles.io/robots.txt) et un [sitemap XML](https://www.studiopickles.io/sitemap.xml). Montpellier apparaît dans les contenus et la zone desservie des données structurées.
 
+Le fichier `public/google7e22f4b13867d8b5.html`, fourni par Google Search Console, permet de valider la propriété **Préfixe d’URL** `https://www.studiopickles.io/`. Conserver ce fichier après la validation pour maintenir le statut de propriétaire. Cette méthode ne nécessite pas de variable `GOOGLE_SITE_VERIFICATION`.
+
 Après publication :
 
 1. Ajouter le site dans Google Search Console. Pour une propriété **Domaine** `studiopickles.io`, ajouter le TXT demandé dans les DNS Squarespace. Pour une propriété **Préfixe d’URL** `https://www.studiopickles.io/`, renseigner le code HTML dans `GOOGLE_SITE_VERIFICATION`, redéployer puis valider la propriété.
