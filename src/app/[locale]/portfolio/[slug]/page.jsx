@@ -3,21 +3,30 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getProjectBySlug,
+  getProjects,
   getSiteContent,
   locales,
 } from "../../../lib/site";
+import { buildPageMetadata } from "../../../lib/seo";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
-    [
-      "sciences-co",
-      "dropper-portal",
-      "dropper-app",
-      "edge-dynamics",
-      "mbuzz",
-      "saudi-excellence",
-    ].map((slug) => ({ locale, slug }))
+    getProjects(locale).map((project) => ({ locale, slug: project.slug }))
   );
+}
+
+export async function generateMetadata({ params }) {
+  const { locale, slug } = await params;
+  const project = getProjectBySlug(locale, slug);
+
+  if (!project) notFound();
+
+  return buildPageMetadata(locale, {
+    title: project.title,
+    description: project.summary,
+    path: `/portfolio/${slug}`,
+    image: project.heroImage,
+  });
 }
 
 export default async function ProjectDetailPage({ params }) {
@@ -111,28 +120,21 @@ export default async function ProjectDetailPage({ params }) {
         </article>
       </section>
 
-      <section className="section-frame flex flex-col gap-5 p-6">
-        <span className="eyebrow">{content.projectPage.impact}</span>
-        <div className="grid gap-3 md:grid-cols-3">
-          {project.impactPoints?.length
-            ? project.impactPoints.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[22px] border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/85"
-                >
-                  {item}
-                </div>
-              ))
-            : [
-                <div
-                  key="placeholder"
-                  className="rounded-[22px] border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/85"
-                >
-                  {content.projectPage.placeholderImpact}
-                </div>,
-              ]}
-        </div>
-      </section>
+      {project.impactPoints?.length ? (
+        <section className="section-frame flex flex-col gap-5 p-6">
+          <span className="eyebrow">{content.projectPage.impact}</span>
+          <div className="grid gap-3 md:grid-cols-3">
+            {project.impactPoints.map((item) => (
+              <div
+                key={item}
+                className="rounded-[22px] border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/85"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="flex flex-col gap-5">
         <span className="eyebrow">{content.projectPage.gallery}</span>
@@ -144,7 +146,7 @@ export default async function ProjectDetailPage({ params }) {
             >
               <Image
                 src={image}
-                alt={`${project.title} visual ${index + 1}`}
+                alt={`${project.title} — ${content.projectPage.gallery} ${index + 1}`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"

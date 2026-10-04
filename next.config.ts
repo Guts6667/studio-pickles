@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // … tes autres options éventuelles (images, experimental, etc.)
+  poweredByHeader: false,
 };
 
 export default nextConfig;

@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pickles Studio
 
-## Getting Started
+Site vitrine multilingue de Pickles Studio, construit avec Next.js et React. Le français est la langue par défaut ; les versions anglaise et néerlandaise sont accessibles sous `/en` et `/nl`. Le portfolio présente six projets.
 
-First, run the development server:
+Adresse publique : [www.studiopickles.io](https://www.studiopickles.io). Le site est hébergé sur Vercel ; un push sur la branche GitHub `main` déclenche le déploiement de production.
+
+## Développement et vérification
+
+Node.js 20.9 ou plus récent est requis.
 
 ```bash
-npm run dev
-# or
+yarn install
+cp .env.example .env.local
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le serveur de développement est accessible sur [localhost:3000](http://localhost:3000). Pour vérifier une version destinée à la publication :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn check
+yarn build
+yarn start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Puis, dans un autre terminal :
 
-## Learn More
+```bash
+yarn verify:site
+```
 
-To learn more about Next.js, take a look at the following resources:
+Ce contrôle parcourt les 42 pages publiques et vérifie notamment les langues, les métadonnées, les liens, les mentions légales, le sitemap, les règles d’indexation et les erreurs 404. Après le déploiement :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn verify:site https://www.studiopickles.io
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Configuration et informations professionnelles
 
-## Deploy on Vercel
+Le fichier `.env.example` documente les options principales, à renseigner dans les variables d’environnement Vercel si nécessaire :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Variable | Utilisation |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Origine HTTPS publique, par défaut `https://www.studiopickles.io`, utilisée pour les URL canoniques, les langues alternatives, le sitemap et les partages. |
+| `GOOGLE_SITE_VERIFICATION` | Code de vérification HTML fourni par Google Search Console, sans la balise complète. Facultatif si la propriété est vérifiée par DNS. |
+| `SITE_INDEXING_ENABLED` | `false` pour bloquer l’indexation d’un environnement de test ; `true` en production. Les déploiements Preview Vercel sont exclus automatiquement. |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Les coordonnées, l’identité de l’entreprise et l’hébergeur sont centralisés dans `src/app/lib/business.js`, avec des valeurs modifiables par variables d’environnement. Les informations `NEXT_PUBLIC_` sont publiques : ne jamais y placer de secret.
+
+Les mentions légales identifient **Rayan Chambet EI**, entrepreneur individuel au régime micro-entreprise, avec le SIREN **820 401 990**, le SIRET **820 401 990 00024** et l’adresse professionnelle **59 rue de Ponthieu, 75008 Paris**. Montpellier est présenté comme une zone d’intervention pour les services web et digitaux. Le numéro de TVA peut être renseigné avec `NEXT_PUBLIC_BUSINESS_VAT_NUMBER` s’il s’applique. L’identité de l’hébergeur Vercel est documentée dans sa [politique de confidentialité](https://vercel.com/legal/privacy-notice) et sa [page de contact juridique](https://vercel.com/legal/dmca-policy).
+
+## Référencement Google
+
+Le site fournit des titres et descriptions par page, des URL canoniques, les alternatives de langue, des données structurées, [robots.txt](https://www.studiopickles.io/robots.txt) et un [sitemap XML](https://www.studiopickles.io/sitemap.xml). Montpellier apparaît dans les contenus et la zone desservie des données structurées.
+
+Après publication :
+
+1. Ajouter le site dans Google Search Console. Pour une propriété **Domaine** `studiopickles.io`, ajouter le TXT demandé dans les DNS Squarespace. Pour une propriété **Préfixe d’URL** `https://www.studiopickles.io/`, renseigner le code HTML dans `GOOGLE_SITE_VERIFICATION`, redéployer puis valider la propriété.
+2. Envoyer `sitemap.xml` dans la rubrique **Sitemaps**. Google explique cette étape dans son [guide des sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
+3. Inspecter `https://www.studiopickles.io/fr` et demander son indexation, puis suivre les rapports de pages et de performances.
+
+Ces éléments permettent la découverte et l’exploration du site ; ils ne garantissent ni l’indexation immédiate ni une position dans les résultats.
+
+Une fiche d’établissement Google peut compléter la présence locale si l’activité reçoit des clients ou se déplace réellement chez eux. Une adresse de domiciliation ne doit pas être présentée comme un établissement accueillant le public. Consulter les [consignes officielles de Google](https://support.google.com/business/answer/3038177?hl=fr) avant de créer cette fiche.
+
+## Réception des emails
+
+L’adresse publiée est `contact@studiopickles.io`. Le domaine est géré dans Squarespace et les enregistrements MX Mailgun existants correspondent à son service de redirection.
+
+Dans **Squarespace Domains → studiopickles.io → Email → Email Forwarding**, créer ou vérifier la règle de l’alias `contact` vers la boîte de réception choisie. Valider le lien envoyé à cette boîte, puis tester un message vers `contact@studiopickles.io` depuis **une autre adresse email**. Squarespace annonce un délai d’activation de 24 à 48 heures après validation ; conserver les enregistrements de redirection existants. Voir le [guide officiel Squarespace](https://support.squarespace.com/hc/en-us/articles/19000909092237-Email-forwarding-with-a-Squarespace-domain).
+
+La redirection permet de recevoir les demandes. L’envoi de messages avec `contact@studiopickles.io` comme expéditeur nécessite une messagerie ou une configuration d’envoi adaptée. La boîte de destination reste privée et n’est pas publiée dans le site ni dans ce document.

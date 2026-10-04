@@ -1,5 +1,32 @@
 import PageIntro from "../../components/PageIntro";
 import { getSiteContent } from "../../lib/site";
+import { buildPageMetadata } from "../../lib/seo";
+
+const pageMetadata = {
+  fr: {
+    title: "Le studio web et design à Montpellier",
+    description:
+      "Découvrez Pickles Studio et sa manière de concevoir des sites web et produits digitaux pour les entreprises à Montpellier et à l’international.",
+  },
+  en: {
+    title: "About the studio: strategy, design & development",
+    description:
+      "Meet Pickles Studio and discover how we design and build websites and digital products for businesses in Montpellier and internationally.",
+  },
+  nl: {
+    title: "Over de studio: strategie, design en ontwikkeling",
+    description:
+      "Maak kennis met Pickles Studio en onze aanpak voor websites en digitale producten voor bedrijven in Montpellier en daarbuiten.",
+  },
+};
+
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, {
+    ...(pageMetadata[locale] || pageMetadata.fr),
+    path: "/about",
+  });
+}
 
 export default async function AboutPage({ params }) {
   const { locale } = await params;

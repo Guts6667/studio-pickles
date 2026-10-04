@@ -1,4 +1,11 @@
 import { getLegalPage, getSiteContent } from "../../lib/site";
+import { buildPageMetadata } from "../../lib/seo";
+
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const page = getLegalPage(locale, "privacy-policy");
+  return buildPageMetadata(locale, { title: page.title, description: page.intro, path: "/privacy-policy" });
+}
 
 export default async function PrivacyPolicyPage({ params }) {
   const { locale } = await params;
@@ -11,15 +18,13 @@ export default async function PrivacyPolicyPage({ params }) {
         <span className="eyebrow">{page.title}</span>
         <h1 className="text-4xl lg:text-6xl">{page.title}</h1>
         <p className="body-muted max-w-3xl text-sm leading-7">{page.intro}</p>
-        <div className="rounded-[20px] border border-amber-300/20 bg-amber-300/8 px-4 py-4 text-sm leading-7 text-amber-100">
-          {content.common.legalPlaceholder}
-        </div>
+        <time dateTime="2026-10-04" className="text-sm text-white/45">{content.legal.updated}</time>
       </section>
 
       <section className="grid gap-4">
         {page.sections.map((section) => (
           <article key={section.title} className="section-frame flex flex-col gap-3 p-6">
-            <span className="eyebrow">{section.title}</span>
+            <h2 className="eyebrow">{section.title}</h2>
             <p className="body-muted text-sm leading-7">{section.body}</p>
           </article>
         ))}

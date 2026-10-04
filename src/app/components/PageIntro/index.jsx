@@ -14,7 +14,7 @@ export default function PageIntro({ eyebrow, title, intro, stats = [] }) {
       </div>
 
       {stats.length ? (
-        <div className="grid gap-4 border-t border-white/10 pt-6 md:grid-cols-3">
+        <div className="grid gap-4 border-t border-white/10 pt-6 md:grid-cols-2">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col gap-2">
               <span className="text-3xl lg:text-4xl">{stat.value}</span>

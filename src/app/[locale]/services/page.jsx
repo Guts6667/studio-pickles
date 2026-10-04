@@ -2,6 +2,33 @@ import Link from "next/link";
 import Image from "next/image";
 import PageIntro from "../../components/PageIntro";
 import { getServices, getSiteContent } from "../../lib/site";
+import { buildPageMetadata } from "../../lib/seo";
+
+const pageMetadata = {
+  fr: {
+    title: "Création de sites web et design UX/UI à Montpellier",
+    description:
+      "Découvrez les services de Pickles Studio à Montpellier : sites vitrines, applications web, design UX/UI et stratégie pour vos projets digitaux.",
+  },
+  en: {
+    title: "Website development & UX/UI design in Montpellier",
+    description:
+      "Explore Pickles Studio’s services in Montpellier: business websites, web applications, UX/UI design and strategy for digital products.",
+  },
+  nl: {
+    title: "Websites en UX/UI-design in Montpellier",
+    description:
+      "Ontdek de diensten van Pickles Studio in Montpellier: bedrijfswebsites, webapplicaties, UX/UI-design en strategie voor digitale producten.",
+  },
+};
+
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, {
+    ...(pageMetadata[locale] || pageMetadata.fr),
+    path: "/services",
+  });
+}
 
 export default async function ServicesPage({ params }) {
   const { locale } = await params;
@@ -20,6 +47,7 @@ export default async function ServicesPage({ params }) {
         {services.map((service) => (
           <article
             key={service.key}
+            id={service.key}
             className="section-frame grid overflow-hidden lg:grid-cols-[0.95fr_1.05fr]"
           >
             <div className="flex flex-col gap-5 p-6 lg:p-8">

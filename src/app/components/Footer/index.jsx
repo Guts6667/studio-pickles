@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getNavItems, getSiteContent } from "../../lib/site";
+import { business } from "../../lib/business";
 
 export default function Footer({ locale }) {
   const content = getSiteContent(locale);
@@ -15,14 +16,14 @@ export default function Footer({ locale }) {
               <em className="font-serif">Studio</em>
             </h2>
             <p className="max-w-md text-sm leading-6 text-black/70">
-              Premium product agency crafting launch websites, platforms and digital experiences from Paris & Rotterdam.
+              {content.footer.description}
             </p>
           </div>
 
           <div className="grid gap-6 text-sm lg:grid-cols-3">
             <div className="min-w-0 flex flex-col gap-3">
               <span className="uppercase tracking-[0.12em] text-black/45">
-                Sitemap
+                {content.footer.sitemap}
               </span>
               {navItems.map((item) => (
                 <Link key={item.href} href={item.href} className="hover:text-black/60">
@@ -33,27 +34,28 @@ export default function Footer({ locale }) {
 
             <div className="min-w-0 flex flex-col gap-3">
               <span className="uppercase tracking-[0.12em] text-black/45">
-                Contact
+                {content.footer.contact}
               </span>
-              <a className="break-all" href="mailto:contact@studiopickles.io">
-                contact@studiopickles.io
+              <a className="break-all" href={`mailto:${business.email}`}>
+                {business.email}
               </a>
-              <a href="https://wa.me/+33644167776">+33 6 44 16 77 76</a>
+              <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a>
+              <span>{content.contactPage.location}</span>
             </div>
 
             <div className="min-w-0 flex flex-col gap-3">
               <span className="uppercase tracking-[0.12em] text-black/45">
-                Legal
+                {content.footer.legal}
               </span>
-              <Link href={`/${locale}/privacy-policy`}>Privacy Policy</Link>
-              <Link href={`/${locale}/cookie-policy`}>Cookie Policy</Link>
+              <Link href={`/${locale}/legal-notice`}>{content.footer.legalNotice}</Link>
+              <Link href={`/${locale}/privacy-policy`}>{content.footer.privacy}</Link>
+              <Link href={`/${locale}/cookie-policy`}>{content.footer.cookies}</Link>
             </div>
           </div>
         </div>
 
         <div className="flex flex-col gap-3 text-xs text-black/45 lg:flex-row lg:items-center lg:justify-between">
-          <p>All rights reserved. Copyright 2026 ©</p>
-          <p className="max-w-xl text-pretty leading-6">{content.common.legalPlaceholder}</p>
+          <p>© {new Date().getFullYear()} {business.name}. {content.footer.copyright}</p>
         </div>
       </div>
     </footer>

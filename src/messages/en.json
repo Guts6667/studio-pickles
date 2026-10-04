@@ -7,12 +7,20 @@
     "contact": "Contact"
   },
   "hero": {
-    "sub": "Product Studio based in Paris & Rotterdam.",
-    "headline": "We kick-start companies and make you\nexist in the digital realm."
+    "sub": "Websites, design and applications for businesses in Montpellier and beyond.",
+    "headline": "We turn your ideas into clear, distinctive websites and digital products, from strategy to launch."
   },
   "ourServices": {
     "title": "Our Services",
-    "services": ["CREATIVE DESIGN", "RESEARCH & STRATEGY", "USER EXPERIENCE DESIGN", "USER INTERFACE DESIGN", "WEBSITE DEVELOPMENT", "APPLICATION DEVELOPMENT", "TECH PROBLEM SOLVING"]
+    "services": [
+      "CREATIVE DESIGN",
+      "RESEARCH & STRATEGY",
+      "USER EXPERIENCE DESIGN",
+      "USER INTERFACE DESIGN",
+      "WEBSITE DEVELOPMENT",
+      "APPLICATION DEVELOPMENT",
+      "TECH PROBLEM SOLVING"
+    ]
   },
   "ourClients": {
     "title": "Our Clients"

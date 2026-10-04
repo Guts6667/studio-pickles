@@ -1,10 +1,9 @@
 import Link from "next/link";
 import { getSocialLinks } from "../../lib/site";
+import { business } from "../../lib/business";
 
 export default function ContactUs({ locale, title, navItems, sectionLabels }) {
-  const socialItems = getSocialLinks(locale).filter((item) =>
-    ["Instagram", "LinkedIn", "Mail", "WhatsApp"].includes(item.name)
-  );
+  const socialItems = getSocialLinks(locale);
 
   return (
     <section className="page-shell">
@@ -13,10 +12,10 @@ export default function ContactUs({ locale, title, navItems, sectionLabels }) {
         <div className="min-w-0 flex flex-col gap-8 border-l-0 lg:border-l lg:border-white/10 lg:pl-8">
           <h2 className="text-3xl lg:text-4xl">[{title}]</h2>
           <a
-            href="mailto:contact@studiopickles.io"
+            href={`mailto:${business.email}`}
             className="max-w-full break-all text-[11vw] leading-none hover:text-[var(--accent)] sm:text-4xl lg:text-5xl"
           >
-            CONTACT@STUDIOPICKLES.IO
+            {business.email.toUpperCase()}
           </a>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="min-w-0 flex flex-col gap-4">
@@ -36,10 +35,11 @@ export default function ContactUs({ locale, title, navItems, sectionLabels }) {
                 {sectionLabels.contact}
               </h3>
               <div className="flex flex-col gap-2 text-sm">
-                <a className="break-all" href="mailto:contact@studiopickles.io">
-                  contact@studiopickles.io
+                <a className="break-all" href={`mailto:${business.email}`}>
+                  {business.email}
                 </a>
-                <a href="https://wa.me/+33644167776">+33 6 44 16 77 76</a>
+                <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a>
+                <p>Montpellier · France</p>
               </div>
             </div>
             <div className="min-w-0 flex flex-col gap-4">

@@ -1,6 +1,7 @@
 
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
+import { defaultLocale } from "./lib/site";
 
 export default function RootPage() {
-  redirect("/en");
+  permanentRedirect(`/${defaultLocale}`);
 }

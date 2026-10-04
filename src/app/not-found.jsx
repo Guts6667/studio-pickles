@@ -5,15 +5,15 @@ export default function NotFound() {
     <main className="page-shell flex min-h-[70vh] items-center justify-center py-16">
       <div className="section-frame flex max-w-xl flex-col items-center gap-5 p-8 text-center">
         <span className="eyebrow">404</span>
-        <h1 className="text-4xl lg:text-5xl">This page could not be found.</h1>
+        <h1 className="text-4xl lg:text-5xl">Cette page est introuvable.</h1>
         <p className="body-muted text-sm leading-7">
-          The route does not exist yet or the requested project is not published.
+          Retrouvez nos réalisations, nos services et les coordonnées du studio depuis l’accueil.
         </p>
         <Link
-          href="/en"
+          href="/fr"
           className="rounded-full bg-white px-6 py-3 text-sm text-black transition-transform hover:scale-[1.02]"
         >
-          Back to home
+          Retour à l’accueil
         </Link>
       </div>
     </main>

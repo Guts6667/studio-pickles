@@ -1,5 +1,7 @@
+import { business } from "./business";
+
 export const locales = ["en", "fr", "nl"];
-export const defaultLocale = "en";
+export const defaultLocale = "fr";
 
 const baseNav = [
   { key: "home", href: "" },
@@ -10,684 +12,540 @@ const baseNav = [
 ];
 
 const siteContent = {
-  en: {
-    meta: {
-      title: "Pickles Studio",
-      description:
-        "Premium product agency blending strategy, design and engineering for ambitious brands.",
+  "en": {
+    "meta": {
+      "title": "Pickles Studio",
+      "description": "Website creation, UX/UI design and application development for businesses in Montpellier. Pickles Studio supports your project from strategy to launch."
     },
-    navigation: {
-      menu: "Menu",
-      close: "Close",
-      home: "Home",
-      portfolio: "Portfolio",
-      services: "Services",
-      about: "About",
-      contact: "Contact",
-      work: "Work",
+    "navigation": {
+      "menu": "Menu",
+      "close": "Close",
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact",
+      "work": "Work"
     },
-    common: {
-      cities: "Paris & Rotterdam",
-      discover: "Discover the case study",
-      liveSite: "Visit live project",
-      backToPortfolio: "Back to portfolio",
-      legalPlaceholder:
-        "Review the company identity, address and any tool-specific providers before publishing the final legal version.",
+    "common": {
+      "cities": "Montpellier · France · International",
+      "discover": "Discover the case study",
+      "liveSite": "Visit the client website",
+      "backToPortfolio": "Back to portfolio"
     },
-    hero: {
-      kicker: "Product agency premium",
-      sub: "We are a product agency based in Paris & Rotterdam.",
-      headline:
-        "We shape premium digital products for founders, brands and teams that need clarity, speed and craft.",
-      ctaPrimary: "Start a project",
-      ctaSecondary: "View our work",
+    "hero": {
+      "kicker": "Web design & digital products",
+      "sub": "Websites, design and applications for businesses in Montpellier and beyond.",
+      "headline": "We turn your ideas into clear, distinctive websites and digital products, from strategy to launch.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "View our work"
     },
-    home: {
-      workTitle: "Selected Work",
-      workIntro:
-        "A curated selection of digital products, launches and premium interfaces designed to move businesses forward.",
-      servicesTitle: "Our Services",
-      clientsTitle: "Selected Clients",
-      clientsIntro:
-        "We partner with teams that need product thinking, strong execution and sharp design decisions.",
-      followTitle: "Follow Us",
-      followMarquee: "FOLLOW US-",
+    "home": {
+      "workTitle": "Selected Work",
+      "workIntro": "A curated selection of digital products, launches and premium interfaces designed to move businesses forward.",
+      "servicesTitle": "Our Services",
+      "clientsTitle": "Selected Clients",
+      "clientsIntro": "We partner with teams that need product thinking, strong execution and sharp design decisions.",
+      "followTitle": "Follow Us",
+      "followMarquee": "FOLLOW US-"
     },
-    servicesPage: {
-      eyebrow: "Services",
-      title: "From strategy to launch, we build products with taste and traction.",
-      intro:
-        "Pickles Studio combines product thinking, creative direction and technical execution to turn fuzzy ideas into premium digital experiences.",
-      cta: "Let’s discuss your project",
+    "servicesPage": {
+      "eyebrow": "Services",
+      "title": "From strategy to launch, we build products with taste and traction.",
+      "intro": "Website creation, UX/UI design and web or mobile application development: Pickles Studio helps businesses in Montpellier and beyond define and build their digital presence.",
+      "cta": "Let’s discuss your project"
     },
-    aboutPage: {
-      eyebrow: "About",
-      title: "A small premium agency built for ambitious digital work.",
-      intro:
-        "Pickles Studio operates at the intersection of product strategy, design systems and shipping-ready execution. We work closely with founders and teams that want sharper decisions, stronger digital presence and fewer layers between idea and delivery.",
-      story:
-        "Our approach is intentionally compact: senior thinking, clear collaboration and a bias toward momentum. We stay close to the product, challenge weak assumptions and keep the craft high across interface, narrative and implementation.",
-      principles: [
+    "aboutPage": {
+      "eyebrow": "About",
+      "title": "A small premium agency built for ambitious digital work.",
+      "intro": "Pickles Studio operates at the intersection of product strategy, design systems and shipping-ready execution. We work closely with founders and teams that want sharper decisions, stronger digital presence and fewer layers between idea and delivery.",
+      "story": "Our approach is direct: understand your goals, define priorities and collaborate throughout the project. We connect content, interface design and development so that every decision serves the experience.",
+      "principles": [
         "Product clarity before production noise.",
         "Design that feels deliberate, not decorative.",
-        "Execution that respects both speed and quality.",
+        "Execution that respects both speed and quality."
       ],
-      blocks: [
+      "blocks": [
         {
-          title: "How we work",
-          body:
-            "We define the problem, frame the opportunity, shape the product direction and build the experience in tight collaboration with stakeholders.",
+          "title": "How we work",
+          "body": "We define the problem, frame the opportunity, shape the product direction and build the experience in tight collaboration with stakeholders."
         },
         {
-          title: "What we bring",
-          body:
-            "Product strategy, UX/UI design, premium websites, web applications and hands-on technical problem solving.",
+          "title": "What we bring",
+          "body": "Product strategy, UX/UI design, premium websites, web applications and hands-on technical problem solving."
         },
         {
-          title: "Where we operate",
-          body:
-            "Based between Paris and Rotterdam, we collaborate internationally and keep communication direct, lightweight and decision-oriented.",
+          "title": "Who we work with",
+          "body": "We support founders, brands and teams in Montpellier, across France and internationally. Projects can be coordinated remotely through direct communication and regular reviews."
+        }
+      ]
+    },
+    "contactPage": {
+      "eyebrow": "Contact",
+      "title": "Let’s discuss the product, platform or launch you need next.",
+      "intro": "Whether you need a premium website, a sharper product direction or a partner to ship a new experience, we can start with a focused conversation.",
+      "cta": business.email,
+      "phoneLabel": "WhatsApp",
+      "emailLabel": "Email",
+      "socialLabel": "Follow us",
+      "availability": "Tell us about your goals, timeline and project. Contact us by email or WhatsApp to start the conversation.",
+      "locationLabel": "Service area",
+      "location": "Montpellier, France and international projects delivered remotely."
+    },
+    "portfolioPage": {
+      "eyebrow": "Portfolio",
+      "title": "Selected work shaped through product, design and engineering.",
+      "intro": "Six selected projects covering websites, web platforms and mobile applications, with the challenge, solution and delivered features for each project.",
+      "stats": [
+        {
+          "value": "6",
+          "label": "Selected projects"
         },
-      ],
+        {
+          "value": "3",
+          "label": "Strategy, design & development"
+        }
+      ]
     },
-    contactPage: {
-      eyebrow: "Contact",
-      title: "Let’s discuss the product, platform or launch you need next.",
-      intro:
-        "Whether you need a premium website, a sharper product direction or a partner to ship a new experience, we can start with a focused conversation.",
-      cta: "contact@studiopickles.io",
-      phoneLabel: "WhatsApp",
-      emailLabel: "Email",
-      socialLabel: "Follow us",
-      availability:
-        "Current contact details use placeholders where final brand information has not yet been confirmed.",
+    "projectPage": {
+      "overview": "Overview",
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "impact": "Impact",
+      "services": "Services",
+      "year": "Year",
+      "client": "Client",
+      "type": "Type",
+      "gallery": "Gallery"
     },
-    portfolioPage: {
-      eyebrow: "Portfolio",
-      title: "Selected work shaped through product, design and engineering.",
-      intro:
-        "A curated body of work spanning web platforms, mobile experiences, launch websites and product-facing brand systems.",
-      stats: [
-        { value: "+20", label: "Projects delivered" },
-        { value: "6", label: "Featured case studies" },
-        { value: "3", label: "Core disciplines" },
-        { value: "2", label: "Cities of operation" },
-      ],
+    "contactBlock": {
+      "title": "Contact Us",
+      "sitemap": "Sitemap",
+      "contact": "Contact details",
+      "follow": "Follow us"
     },
-    projectPage: {
-      overview: "Overview",
-      challenge: "Challenge",
-      solution: "Solution",
-      impact: "Impact",
-      services: "Services",
-      year: "Year",
-      client: "Client",
-      type: "Type",
-      gallery: "Gallery",
-      placeholderImpact: "Outcome details to be confirmed.",
-    },
-    contactBlock: {
-      title: "Contact Us",
-      sitemap: "Sitemap",
-      contact: "Contact details",
-      follow: "Follow us",
-    },
-    legal: {
-      privacy: {
-        title: "Privacy Policy",
-        intro:
-          "This privacy policy explains how Pickles Studio may collect, use and protect personal data when you browse the website, contact the studio or start a project conversation.",
-        sections: [
+    "legal": {
+      "updated": "Last updated: 4 October 2026",
+      "privacy": {
+        "title": "Privacy policy",
+        "intro": "This page explains how personal information is used when you visit the Pickles Studio website or contact us about a project.",
+        "sections": [
           {
-            title: "Who we are",
-            body:
-              "Pickles Studio is a premium product agency operating between Paris and Rotterdam. For legal or privacy-related questions, you can currently contact the studio at contact@studiopickles.io. If a registered company name, address or VAT number applies, those details should be added to the final published version of this policy.",
+            "title": "Contact",
+            "body": `For questions about your personal data, write to ${business.email}. The studio supports digital projects for businesses in Montpellier, France and internationally.`
           },
           {
-            title: "What information may be collected",
-            body:
-              "Depending on how you interact with the website, Pickles Studio may collect contact details such as your name, email address, company name, phone number and any project information you choose to share. Technical information such as browser type, device type, approximate location, referral source, visited pages and basic analytics events may also be collected automatically through standard website tools.",
+            "title": "Browsing the website",
+            "body": "The website has no contact form, account system or advertising or audience measurement trackers. The hosting infrastructure receives the technical information needed to deliver pages and maintain security, including your IP address and request details."
           },
           {
-            title: "How the information is used",
-            body:
-              "Personal data may be used to answer inquiries, manage project discussions, provide proposals, improve the website experience, understand interest in services, maintain website security and meet legal or administrative obligations. Pickles Studio does not use personal information for unrelated purposes without a valid reason or legal basis.",
+            "title": "Contacting the studio",
+            "body": "Email and WhatsApp links open the relevant application or service. If you contact us, we receive the information you choose to share, such as your name, contact details and project description. We use it to answer your request, discuss your project and prepare a proposal. This processing is necessary to take steps at your request before a potential contract."
           },
           {
-            title: "Legal basis for processing",
-            body:
-              "Where applicable, Pickles Studio processes personal data on one or more of the following grounds: your consent, the need to respond to a request before entering into a contract, the performance of a contract, legitimate interest in running and improving the studio website, or compliance with legal obligations.",
+            "title": "Recipients and external services",
+            "body": "Project discussions are handled by the studio and the communication services you use to contact us. Links to Instagram, LinkedIn, WhatsApp and client websites take you to external services with their own privacy policies. Social media content is not embedded in this website."
           },
           {
-            title: "Sharing with service providers",
-            body:
-              "Information may be shared only with service providers that help operate the website or studio workflows, such as hosting providers, analytics providers, email services, scheduling tools or communication platforms. These providers should only process the information required for their function and are expected to apply appropriate confidentiality and security measures.",
+            "title": "Retention",
+            "body": "We keep inquiry correspondence for the time needed to handle your request and any project follow-up. If a project results in a contract, the related records are kept for the relationship and applicable legal obligations. You can ask us to delete data that no longer needs to be retained."
           },
           {
-            title: "Data retention",
-            body:
-              "Pickles Studio keeps personal data only for as long as it is reasonably necessary for the purpose for which it was collected. Inquiry emails and project-related communications may be kept for follow-up, relationship management, legal recordkeeping or operational continuity, unless deletion is requested and retention is not otherwise required.",
-          },
-          {
-            title: "International transfers",
-            body:
-              "Because digital tools and service providers may operate in different countries, some information may be processed outside your country of residence. When that happens, reasonable steps should be taken to ensure an appropriate level of protection, including contractual safeguards where required.",
-          },
-          {
-            title: "Your rights",
-            body:
-              "Depending on the laws that apply to you, you may have the right to request access to your personal data, ask for correction or deletion, object to certain processing, request restriction, withdraw consent where consent is the basis for processing, or request data portability. To exercise any of these rights, contact contact@studiopickles.io.",
-          },
-          {
-            title: "Security",
-            body:
-              "Pickles Studio aims to use reasonable technical and organizational measures to protect personal information against unauthorized access, loss, misuse or disclosure. However, no online transmission or storage system can be guaranteed to be fully secure, so absolute security cannot be promised.",
-          },
-          {
-            title: "Updates to this policy",
-            body:
-              "This privacy policy may be updated from time to time to reflect legal, operational or website changes. The latest version should always be the one published on this page, with the effective date added once the policy is finalized.",
-          },
-        ],
+            "title": "Your rights",
+            "body": `You can request access to, correction or deletion of your personal data, and ask for restriction or object to processing where applicable. Contact ${business.email} to make a request. You can also lodge a complaint with the French data protection authority, the CNIL (cnil.fr).`
+          }
+        ]
       },
-      cookies: {
-        title: "Cookie Policy",
-        intro:
-          "This cookie policy explains how Pickles Studio may use cookies and similar technologies to keep the website functional, understand traffic and improve the browsing experience.",
-        sections: [
+      "cookies": {
+        "title": "Cookie information",
+        "intro": "The Pickles Studio website does not set advertising or audience measurement cookies and does not use a cookie-based language preference.",
+        "sections": [
           {
-            title: "What cookies are",
-            body:
-              "Cookies are small text files placed on your device when you visit a website. They help websites remember information about your visit, support core functionality, measure usage and sometimes personalize certain parts of the experience.",
+            "title": "Browsing without tracking cookies",
+            "body": "The website does not include analytics, advertising scripts or embedded social media content. Language selection uses the page address, such as /fr, /en or /nl, and does not require a preference cookie."
           },
           {
-            title: "Why cookies may be used",
-            body:
-              "Pickles Studio may use cookies to make the site work properly, understand how visitors use the website, remember simple preferences, improve performance and evaluate interest in the studio’s services or content. Cookies are not intended to collect more data than is reasonably necessary for these purposes.",
+            "title": "External links",
+            "body": "Opening a link to Instagram, LinkedIn, WhatsApp or a client website takes you to another service. That service may use cookies according to its own policy and settings."
           },
           {
-            title: "Types of cookies that may be present",
-            body:
-              "The website may use essential cookies required for technical operation, analytics cookies that help measure visits and behavior, performance cookies that support reliability and loading quality, and functional cookies that remember simple preferences. If marketing or third-party targeting cookies are ever introduced, the policy and any consent mechanism should be updated accordingly.",
+            "title": "Browser settings",
+            "body": "Your browser settings let you view, block and delete cookies stored by websites. Changing these settings does not prevent you from reading the public pages of this site."
           },
           {
-            title: "Third-party tools",
-            body:
-              "Some cookies may be set by third-party services used to operate or enhance the website, such as analytics providers, embedded content tools, scheduling products or social media integrations. Those third parties may process certain usage data according to their own privacy documentation.",
-          },
-          {
-            title: "How to manage cookies",
-            body:
-              "You can usually control or delete cookies through your browser settings. Depending on the tools used on the site, you may also be able to accept or refuse non-essential cookies through a consent banner or settings panel. Blocking certain cookies may affect how parts of the website function.",
-          },
-          {
-            title: "Cookie duration",
-            body:
-              "Some cookies only remain active during your browsing session and disappear when you close your browser. Others stay on your device for a defined period so that preferences, analytics or technical settings can be recognized when you return.",
-          },
-          {
-            title: "Updates to this policy",
-            body:
-              "This cookie policy may be updated when the website changes, when new tools are added or when legal requirements evolve. The version available on this page should be treated as the most current one, with a revision date added in the final published version.",
-          },
-        ],
-      },
+            "title": "Changes to the website",
+            "body": "This information will be updated if the website starts using cookies or other tracking tools. Any new use requiring consent must provide a choice before those tools are activated."
+          }
+        ]
+      }
     },
+    "footer": {
+      "description": "Website creation, UX/UI design and application development for businesses in Montpellier, France and beyond.",
+      "sitemap": "Sitemap",
+      "contact": "Contact",
+      "legal": "Legal information",
+      "privacy": "Privacy policy",
+      "cookies": "Cookies",
+      "legalNotice": "Legal notice",
+      "copyright": "All rights reserved."
+    }
   },
-  fr: {
-    meta: {
-      title: "Pickles Studio",
-      description:
-        "Agence produit premium mêlant stratégie, design et développement pour des marques ambitieuses.",
+  "fr": {
+    "meta": {
+      "title": "Pickles Studio",
+      "description": "Création de sites web, design UX/UI et développement d’applications pour les entreprises à Montpellier. Pickles Studio accompagne votre projet de la stratégie au lancement."
     },
-    navigation: {
-      menu: "Menu",
-      close: "Fermer",
-      home: "Accueil",
-      portfolio: "Portfolio",
-      services: "Services",
-      about: "À propos",
-      contact: "Contact",
-      work: "Réalisations",
+    "navigation": {
+      "menu": "Menu",
+      "close": "Fermer",
+      "home": "Accueil",
+      "portfolio": "Portfolio",
+      "services": "Services",
+      "about": "À propos",
+      "contact": "Contact",
+      "work": "Réalisations"
     },
-    common: {
-      cities: "Paris & Rotterdam",
-      discover: "Voir la case study",
-      liveSite: "Visiter le projet",
-      backToPortfolio: "Retour au portfolio",
-      legalPlaceholder:
-        "Vérifiez la raison sociale, l’adresse et les éventuels prestataires exacts avant publication de la version juridique finale.",
+    "common": {
+      "cities": "Montpellier · France · International",
+      "discover": "Découvrir le projet",
+      "liveSite": "Visiter le site du client",
+      "backToPortfolio": "Retour au portfolio"
     },
-    hero: {
-      kicker: "Agence produit premium",
-      sub: "Nous sommes une agence produit basée à Paris & Rotterdam.",
-      headline:
-        "Nous concevons des produits digitaux premium pour les fondateurs, les marques et les équipes qui ont besoin de clarté, de vitesse et d’exigence.",
-      ctaPrimary: "Démarrer un projet",
-      ctaSecondary: "Voir nos projets",
+    "hero": {
+      "kicker": "Création web & produits digitaux",
+      "sub": "Sites web, design et applications pour les entreprises de Montpellier et au-delà.",
+      "headline": "Nous transformons vos idées en sites web et produits digitaux clairs et singuliers, de la stratégie au lancement.",
+      "ctaPrimary": "Démarrer un projet",
+      "ctaSecondary": "Voir nos projets"
     },
-    home: {
-      workTitle: "Projets Sélectionnés",
-      workIntro:
-        "Une sélection curée de produits digitaux, lancements et interfaces premium conçus pour faire avancer les entreprises.",
-      servicesTitle: "Nos Services",
-      clientsTitle: "Clients Sélectionnés",
-      clientsIntro:
-        "Nous accompagnons des équipes qui ont besoin de vision produit, d’exécution solide et de décisions design nettes.",
-      followTitle: "Suivez-nous",
-      followMarquee: "SUIVEZ-NOUS-",
+    "home": {
+      "workTitle": "Projets Sélectionnés",
+      "workIntro": "Une sélection de sites web, de plateformes et d’interfaces conçus pour accompagner le développement des entreprises.",
+      "servicesTitle": "Nos Services",
+      "clientsTitle": "Clients Sélectionnés",
+      "clientsIntro": "Nous accompagnons des équipes qui ont besoin de vision produit, d’exécution solide et de décisions design nettes.",
+      "followTitle": "Suivez-nous",
+      "followMarquee": "SUIVEZ-NOUS-"
     },
-    servicesPage: {
-      eyebrow: "Services",
-      title:
-        "De la stratégie au lancement, nous construisons des produits avec exigence et impact.",
-      intro:
-        "Pickles Studio réunit réflexion produit, direction créative et exécution technique pour transformer des idées floues en expériences digitales premium.",
-      cta: "Parlons de votre projet",
+    "servicesPage": {
+      "eyebrow": "Services",
+      "title": "De la stratégie au lancement, nous construisons des produits avec exigence et impact.",
+      "intro": "Création de sites web, design UX/UI et développement d’applications web ou mobiles : Pickles Studio accompagne les entreprises de Montpellier et au-delà dans leur présence digitale.",
+      "cta": "Parlons de votre projet"
     },
-    aboutPage: {
-      eyebrow: "À propos",
-      title:
-        "Une agence premium à taille humaine conçue pour des projets digitaux ambitieux.",
-      intro:
-        "Pickles Studio travaille au croisement de la stratégie produit, des systèmes de design et de l’exécution prête à être mise en ligne. Nous collaborons avec des fondateurs et des équipes qui veulent de meilleures décisions, une présence digitale plus forte et moins de distance entre idée et livraison.",
-      story:
-        "Notre fonctionnement est volontairement compact : de la séniorité, des échanges clairs et un vrai sens du rythme. Nous restons proches du produit, challengeons les hypothèses fragiles et maintenons un haut niveau d’exigence sur l’interface, le récit et l’implémentation.",
-      principles: [
+    "aboutPage": {
+      "eyebrow": "À propos",
+      "title": "Une agence premium à taille humaine conçue pour des projets digitaux ambitieux.",
+      "intro": "Pickles Studio associe stratégie produit, design UX/UI et développement. Nous aidons les fondateurs et les équipes à clarifier leurs idées, créer une présence digitale solide et concrétiser leurs projets.",
+      "story": "Notre approche est directe : comprendre vos objectifs, définir les priorités et collaborer tout au long du projet. Nous relions le contenu, le design d’interface et le développement pour que chaque décision serve l’expérience.",
+      "principles": [
         "La clarté produit avant le bruit de production.",
         "Un design intentionnel, jamais décoratif.",
-        "Une exécution qui respecte la vitesse sans sacrifier la qualité.",
+        "Une exécution qui respecte la vitesse sans sacrifier la qualité."
       ],
-      blocks: [
+      "blocks": [
         {
-          title: "Notre manière de travailler",
-          body:
-            "Nous clarifions le problème, cadrons l’opportunité, définissons la direction produit et construisons l’expérience en collaboration étroite avec les parties prenantes.",
+          "title": "Notre manière de travailler",
+          "body": "Nous clarifions le problème, cadrons l’opportunité, définissons la direction produit et construisons l’expérience en collaboration étroite avec les parties prenantes."
         },
         {
-          title: "Ce que nous apportons",
-          body:
-            "Stratégie produit, UX/UI design, sites premium, applications web et résolution concrète de problèmes techniques.",
+          "title": "Ce que nous apportons",
+          "body": "Stratégie produit, UX/UI design, sites premium, applications web et résolution concrète de problèmes techniques."
         },
         {
-          title: "Où nous opérons",
-          body:
-            "Basés entre Paris et Rotterdam, nous collaborons à l’international avec une communication directe, légère et orientée décision.",
+          "title": "Qui nous accompagnons",
+          "body": "Nous accompagnons les fondateurs, les marques et les équipes à Montpellier, en France et à l’international. Les projets peuvent être menés à distance, avec des échanges directs et des points réguliers."
+        }
+      ]
+    },
+    "contactPage": {
+      "eyebrow": "Contact",
+      "title": "Parlons du produit, de la plateforme ou du lancement que vous devez concrétiser.",
+      "intro": "Que vous ayez besoin d’un site premium, d’une direction produit plus nette ou d’un partenaire pour livrer une nouvelle expérience, nous pouvons commencer par un échange ciblé.",
+      "cta": business.email,
+      "phoneLabel": "WhatsApp",
+      "emailLabel": "Email",
+      "socialLabel": "Suivez-nous",
+      "availability": "Présentez-nous vos objectifs, votre calendrier et votre projet. Contactez-nous par email ou WhatsApp pour commencer l’échange.",
+      "locationLabel": "Zone d’intervention",
+      "location": "Montpellier, France et projets internationaux accompagnés à distance."
+    },
+    "portfolioPage": {
+      "eyebrow": "Portfolio",
+      "title": "Des réalisations choisies, façonnées par le produit, le design et l’ingénierie.",
+      "intro": "Six projets sélectionnés : sites web, plateformes et applications mobiles. Chaque présentation détaille les enjeux, la réponse et les fonctionnalités livrées.",
+      "stats": [
+        {
+          "value": "6",
+          "label": "Projets sélectionnés"
         },
-      ],
+        {
+          "value": "3",
+          "label": "Stratégie, design & développement"
+        }
+      ]
     },
-    contactPage: {
-      eyebrow: "Contact",
-      title:
-        "Parlons du produit, de la plateforme ou du lancement que vous devez concrétiser.",
-      intro:
-        "Que vous ayez besoin d’un site premium, d’une direction produit plus nette ou d’un partenaire pour livrer une nouvelle expérience, nous pouvons commencer par un échange ciblé.",
-      cta: "contact@studiopickles.io",
-      phoneLabel: "WhatsApp",
-      emailLabel: "Email",
-      socialLabel: "Suivez-nous",
-      availability:
-        "Les coordonnées actuelles utilisent des placeholders lorsque l’information finale de marque n’a pas encore été confirmée.",
+    "projectPage": {
+      "overview": "Vue d’ensemble",
+      "challenge": "Enjeu",
+      "solution": "Réponse",
+      "impact": "Impact",
+      "services": "Services",
+      "year": "Année",
+      "client": "Client",
+      "type": "Type",
+      "gallery": "Galerie"
     },
-    portfolioPage: {
-      eyebrow: "Portfolio",
-      title:
-        "Des réalisations choisies, façonnées par le produit, le design et l’ingénierie.",
-      intro:
-        "Un portfolio curé allant des plateformes web aux expériences mobiles, en passant par les sites de lancement et les systèmes visuels orientés produit.",
-      stats: [
-        { value: "+20", label: "Projets livrés" },
-        { value: "6", label: "Case studies mises en avant" },
-        { value: "3", label: "Disciplines cœur" },
-        { value: "2", label: "Villes d’opération" },
-      ],
+    "contactBlock": {
+      "title": "Nous Contacter",
+      "sitemap": "Plan du site",
+      "contact": "Coordonnées",
+      "follow": "Suivez-nous"
     },
-    projectPage: {
-      overview: "Vue d’ensemble",
-      challenge: "Enjeu",
-      solution: "Réponse",
-      impact: "Impact",
-      services: "Services",
-      year: "Année",
-      client: "Client",
-      type: "Type",
-      gallery: "Galerie",
-      placeholderImpact: "Les résultats détaillés restent à confirmer.",
-    },
-    contactBlock: {
-      title: "Nous Contacter",
-      sitemap: "Plan du site",
-      contact: "Coordonnées",
-      follow: "Suivez-nous",
-    },
-    legal: {
-      privacy: {
-        title: "Politique de Confidentialité",
-        intro:
-          "Cette politique de confidentialité explique comment Pickles Studio peut collecter, utiliser et protéger les données personnelles lorsque vous naviguez sur le site, contactez le studio ou engagez une discussion projet.",
-        sections: [
+    "legal": {
+      "updated": "Mise à jour : 4 octobre 2026",
+      "privacy": {
+        "title": "Politique de confidentialité",
+        "intro": "Cette page explique l’utilisation des données personnelles lorsque vous consultez le site de Pickles Studio ou nous contactez pour un projet.",
+        "sections": [
           {
-            title: "Qui nous sommes",
-            body:
-              "Pickles Studio est une agence produit premium opérant entre Paris et Rotterdam. Pour toute question liée à la confidentialité ou aux données personnelles, vous pouvez actuellement écrire à contact@studiopickles.io. Si une raison sociale, une adresse ou un numéro de TVA s’appliquent, ces informations devront être ajoutées à la version finale publiée de cette politique.",
+            "title": "Contact",
+            "body": `Pour toute question relative à vos données personnelles, écrivez à ${business.email}. Le studio accompagne des projets digitaux pour les entreprises de Montpellier, en France et à l’international.`
           },
           {
-            title: "Informations susceptibles d’être collectées",
-            body:
-              "Selon votre manière d’utiliser le site, Pickles Studio peut collecter des coordonnées telles que votre nom, votre adresse email, le nom de votre société, votre numéro de téléphone et toute information projet que vous choisissez de partager. Des informations techniques comme le type de navigateur, le type d’appareil, une localisation approximative, la source de provenance, les pages visitées et certains événements analytics peuvent également être collectées automatiquement via les outils standards du site.",
+            "title": "Navigation sur le site",
+            "body": "Le site ne comporte pas de formulaire de contact, de compte utilisateur, ni de traceur publicitaire ou de mesure d’audience. L’infrastructure d’hébergement reçoit les informations techniques nécessaires à l’affichage des pages et à leur sécurité, notamment l’adresse IP et les informations de requête."
           },
           {
-            title: "Utilisation des informations",
-            body:
-              "Les données personnelles peuvent être utilisées pour répondre aux demandes, gérer les échanges projet, établir des propositions, améliorer l’expérience du site, comprendre l’intérêt pour les services du studio, maintenir la sécurité du site et respecter les obligations légales ou administratives. Pickles Studio n’utilise pas les données personnelles à des fins sans lien avec ces objectifs sans motif valable ou base légale appropriée.",
+            "title": "Prise de contact",
+            "body": "Les liens email et WhatsApp ouvrent l’application ou le service correspondant. Si vous nous contactez, nous recevons les informations que vous choisissez de transmettre : nom, coordonnées et description du projet, par exemple. Nous les utilisons pour répondre à votre demande, échanger sur votre projet et préparer une proposition. Ce traitement est nécessaire aux démarches effectuées à votre demande avant un éventuel contrat."
           },
           {
-            title: "Base légale du traitement",
-            body:
-              "Lorsque cela s’applique, Pickles Studio traite les données personnelles sur l’une ou plusieurs des bases suivantes : votre consentement, la nécessité de répondre à une demande avant un contrat, l’exécution d’un contrat, l’intérêt légitime à faire fonctionner et améliorer le site du studio, ou le respect d’obligations légales.",
+            "title": "Destinataires et services externes",
+            "body": "Les échanges projet sont traités par le studio et les services de communication que vous utilisez pour nous contacter. Les liens vers Instagram, LinkedIn, WhatsApp et les sites des clients ouvrent des services externes disposant de leurs propres politiques de confidentialité. Aucun contenu de réseau social n’est intégré dans ce site."
           },
           {
-            title: "Partage avec des prestataires",
-            body:
-              "Les informations peuvent être partagées uniquement avec des prestataires participant au fonctionnement du site ou des opérations du studio, comme l’hébergement, l’analytics, l’email, la prise de rendez-vous ou les outils de communication. Ces prestataires ne devraient traiter que les données nécessaires à leur fonction et sont supposés appliquer des mesures appropriées de confidentialité et de sécurité.",
+            "title": "Conservation",
+            "body": "Les échanges de contact sont conservés le temps nécessaire au traitement de votre demande et au suivi du projet. Si le projet débouche sur un contrat, les documents associés sont conservés pour la relation contractuelle et les obligations légales applicables. Vous pouvez demander la suppression des données dont la conservation n’est plus nécessaire."
           },
           {
-            title: "Durée de conservation",
-            body:
-              "Pickles Studio conserve les données personnelles uniquement pendant la durée raisonnablement nécessaire à la finalité de leur collecte. Les emails de contact et échanges liés à un projet peuvent être conservés pour le suivi, la gestion de la relation, les obligations légales ou la continuité opérationnelle, sauf demande de suppression lorsque la conservation n’est plus nécessaire.",
-          },
-          {
-            title: "Transferts internationaux",
-            body:
-              "Comme certains outils numériques et prestataires peuvent opérer depuis différents pays, certaines informations peuvent être traitées hors de votre pays de résidence. Dans ce cas, des mesures raisonnables doivent être prises pour assurer un niveau de protection approprié, notamment via des garanties contractuelles lorsque cela est requis.",
-          },
-          {
-            title: "Vos droits",
-            body:
-              "Selon les lois qui vous sont applicables, vous pouvez demander l’accès à vos données personnelles, leur rectification ou suppression, vous opposer à certains traitements, demander leur limitation, retirer votre consentement lorsqu’il constitue la base du traitement ou demander la portabilité des données. Pour exercer ces droits, contactez contact@studiopickles.io.",
-          },
-          {
-            title: "Sécurité",
-            body:
-              "Pickles Studio s’efforce de mettre en place des mesures techniques et organisationnelles raisonnables afin de protéger les informations personnelles contre l’accès non autorisé, la perte, l’usage abusif ou la divulgation. Aucune transmission ou conservation en ligne ne pouvant être garantie comme totalement sûre, une sécurité absolue ne peut toutefois pas être promise.",
-          },
-          {
-            title: "Mises à jour de cette politique",
-            body:
-              "Cette politique de confidentialité peut être mise à jour afin de refléter des évolutions légales, opérationnelles ou liées au site. La version publiée sur cette page doit être considérée comme la plus récente, avec l’ajout d’une date d’effet lorsque la politique sera finalisée.",
-          },
-        ],
+            "title": "Vos droits",
+            "body": `Vous pouvez demander l’accès, la rectification ou la suppression de vos données personnelles, ainsi que la limitation ou l’opposition au traitement lorsque ces droits s’appliquent. Écrivez à ${business.email} pour exercer vos droits. Vous pouvez également adresser une réclamation à la Commission nationale de l’informatique et des libertés, la CNIL (cnil.fr).`
+          }
+        ]
       },
-      cookies: {
-        title: "Politique de Cookies",
-        intro:
-          "Cette politique de cookies explique comment Pickles Studio peut utiliser les cookies et technologies similaires afin d’assurer le bon fonctionnement du site, comprendre son trafic et améliorer l’expérience de navigation.",
-        sections: [
+      "cookies": {
+        "title": "Informations sur les cookies",
+        "intro": "Le site de Pickles Studio ne dépose pas de cookies publicitaires ou de mesure d’audience et ne mémorise pas la langue au moyen d’un cookie.",
+        "sections": [
           {
-            title: "Que sont les cookies",
-            body:
-              "Les cookies sont de petits fichiers texte déposés sur votre appareil lorsque vous consultez un site. Ils permettent notamment de mémoriser certaines informations de visite, d’assurer des fonctions essentielles, de mesurer l’usage du site et parfois de personnaliser certains aspects de l’expérience.",
+            "title": "Navigation sans cookies de suivi",
+            "body": "Le site n’intègre ni outil analytics, ni script publicitaire, ni contenu de réseau social embarqué. Le choix de langue repose sur l’adresse de la page, comme /fr, /en ou /nl, sans cookie de préférence."
           },
           {
-            title: "Pourquoi des cookies peuvent être utilisés",
-            body:
-              "Pickles Studio peut utiliser des cookies pour faire fonctionner correctement le site, comprendre la manière dont les visiteurs l’utilisent, mémoriser des préférences simples, améliorer les performances et évaluer l’intérêt pour les services ou contenus du studio. Les cookies n’ont pas vocation à collecter plus de données que nécessaire pour ces finalités.",
+            "title": "Liens externes",
+            "body": "Un lien vers Instagram, LinkedIn, WhatsApp ou un site client vous conduit vers un autre service. Ce service peut utiliser des cookies selon sa propre politique et ses réglages."
           },
           {
-            title: "Catégories de cookies susceptibles d’être présentes",
-            body:
-              "Le site peut utiliser des cookies essentiels nécessaires à son fonctionnement technique, des cookies analytics pour mesurer les visites et comportements, des cookies de performance pour soutenir la fiabilité et le chargement, ainsi que des cookies fonctionnels permettant de mémoriser certaines préférences. Si des cookies marketing ou de ciblage tiers sont ajoutés, cette politique et tout mécanisme de consentement devront être mis à jour en conséquence.",
+            "title": "Réglages du navigateur",
+            "body": "Les réglages de votre navigateur permettent de consulter, bloquer et supprimer les cookies enregistrés par les sites. Ces réglages ne vous empêchent pas de lire les pages publiques de ce site."
           },
           {
-            title: "Outils tiers",
-            body:
-              "Certains cookies peuvent être déposés par des services tiers utilisés pour faire fonctionner ou enrichir le site, par exemple des outils d’analytics, des contenus embarqués, des solutions de prise de rendez-vous ou des intégrations sociales. Ces tiers peuvent traiter certaines données d’usage selon leur propre documentation de confidentialité.",
-          },
-          {
-            title: "Gestion des cookies",
-            body:
-              "Vous pouvez en général contrôler ou supprimer les cookies depuis les réglages de votre navigateur. Selon les outils présents sur le site, vous pouvez également accepter ou refuser les cookies non essentiels via un bandeau ou un panneau de préférences. Le blocage de certains cookies peut affecter le bon fonctionnement de certaines parties du site.",
-          },
-          {
-            title: "Durée de vie des cookies",
-            body:
-              "Certains cookies restent actifs uniquement pendant votre session de navigation et disparaissent lorsque vous fermez votre navigateur. D’autres restent présents sur votre appareil pendant une durée déterminée afin que certaines préférences, mesures analytics ou réglages techniques puissent être reconnus lors d’une prochaine visite.",
-          },
-          {
-            title: "Mises à jour de cette politique",
-            body:
-              "Cette politique de cookies peut être mise à jour lorsque le site évolue, lorsque de nouveaux outils sont ajoutés ou lorsque les exigences légales changent. La version disponible sur cette page doit être considérée comme la plus récente, avec l’ajout d’une date de révision dans la version finale publiée.",
-          },
-        ],
-      },
+            "title": "Évolution du site",
+            "body": "Ces informations seront mises à jour si des cookies ou d’autres outils de suivi sont ajoutés au site. Toute nouvelle utilisation nécessitant votre consentement devra proposer un choix avant leur activation."
+          }
+        ]
+      }
     },
+    "footer": {
+      "description": "Création de sites web, design UX/UI et développement d’applications pour les entreprises de Montpellier, en France et à l’international.",
+      "sitemap": "Plan du site",
+      "contact": "Contact",
+      "legal": "Informations légales",
+      "privacy": "Confidentialité",
+      "cookies": "Cookies",
+      "legalNotice": "Mentions légales",
+      "copyright": "Tous droits réservés."
+    }
   },
-  nl: {
-    meta: {
-      title: "Pickles Studio",
-      description:
-        "Premium product agency die strategie, design en engineering samenbrengt voor ambitieuze merken.",
+  "nl": {
+    "meta": {
+      "title": "Pickles Studio",
+      "description": "Websites, UX/UI-design en applicatieontwikkeling voor bedrijven in Montpellier. Pickles Studio begeleidt je project van strategie tot lancering."
     },
-    navigation: {
-      menu: "Menu",
-      close: "Sluiten",
-      home: "Home",
-      portfolio: "Portfolio",
-      services: "Services",
-      about: "About",
-      contact: "Contact",
-      work: "Werk",
+    "navigation": {
+      "menu": "Menu",
+      "close": "Sluiten",
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "services": "Diensten",
+      "about": "Over ons",
+      "contact": "Contact",
+      "work": "Projecten"
     },
-    common: {
-      cities: "Paris & Rotterdam",
-      discover: "Bekijk de case study",
-      liveSite: "Bezoek live project",
-      backToPortfolio: "Terug naar portfolio",
-      legalPlaceholder:
-        "Controleer de bedrijfsidentiteit, het adres en eventuele exacte toolproviders voordat de definitieve juridische versie wordt gepubliceerd.",
+    "common": {
+      "cities": "Montpellier · Frankrijk · Internationaal",
+      "discover": "Bekijk de case study",
+      "liveSite": "Bekijk de website van de klant",
+      "backToPortfolio": "Terug naar portfolio"
     },
-    hero: {
-      kicker: "Premium product agency",
-      sub: "Wij zijn een product agency gevestigd in Paris & Rotterdam.",
-      headline:
-        "We bouwen premium digitale producten voor founders, merken en teams die duidelijkheid, snelheid en vakmanschap nodig hebben.",
-      ctaPrimary: "Start een project",
-      ctaSecondary: "Bekijk ons werk",
+    "hero": {
+      "kicker": "Webdesign & digitale producten",
+      "sub": "Websites, design en applicaties voor bedrijven in Montpellier en daarbuiten.",
+      "headline": "We vertalen je ideeën naar heldere, onderscheidende websites en digitale producten, van strategie tot lancering.",
+      "ctaPrimary": "Start een project",
+      "ctaSecondary": "Bekijk ons werk"
     },
-    home: {
-      workTitle: "Selected Work",
-      workIntro:
-        "Een gecureerde selectie van digitale producten, launches en premium interfaces die bedrijven vooruithelpen.",
-      servicesTitle: "Onze Services",
-      clientsTitle: "Selected Clients",
-      clientsIntro:
-        "We werken met teams die product thinking, sterke uitvoering en scherpe designbeslissingen nodig hebben.",
-      followTitle: "Volg ons",
-      followMarquee: "FOLLOW US-",
+    "home": {
+      "workTitle": "Selected Work",
+      "workIntro": "Een gecureerde selectie van digitale producten, launches en premium interfaces die bedrijven vooruithelpen.",
+      "servicesTitle": "Onze Services",
+      "clientsTitle": "Selected Clients",
+      "clientsIntro": "We werken met teams die product thinking, sterke uitvoering en scherpe designbeslissingen nodig hebben.",
+      "followTitle": "Volg ons",
+      "followMarquee": "FOLLOW US-"
     },
-    servicesPage: {
-      eyebrow: "Services",
-      title:
-        "Van strategie tot launch bouwen we producten met smaak en tractie.",
-      intro:
-        "Pickles Studio combineert product thinking, creative direction en technische uitvoering om vage ideeën om te zetten in premium digitale ervaringen.",
-      cta: "Laten we je project bespreken",
+    "servicesPage": {
+      "eyebrow": "Services",
+      "title": "Van strategie tot launch bouwen we producten met smaak en tractie.",
+      "intro": "Websites, UX/UI-design en web- of mobiele applicaties: Pickles Studio helpt bedrijven in Montpellier en daarbuiten hun digitale aanwezigheid vorm te geven en te bouwen.",
+      "cta": "Laten we je project bespreken"
     },
-    aboutPage: {
-      eyebrow: "About",
-      title: "Een kleine premium agency voor ambitieuze digitale projecten.",
-      intro:
-        "Pickles Studio opereert op het kruispunt van productstrategie, design systems en shipping-ready uitvoering. We werken met founders en teams die scherpere beslissingen, een sterkere digitale presence en minder afstand tussen idee en delivery willen.",
-      story:
-        "Onze aanpak is bewust compact: senior thinking, duidelijke samenwerking en een sterke bias voor momentum. We blijven dicht op het product, challengen zwakke aannames en houden de craft hoog over interface, narrative en implementatie.",
-      principles: [
+    "aboutPage": {
+      "eyebrow": "About",
+      "title": "Een kleine premium agency voor ambitieuze digitale projecten.",
+      "intro": "Pickles Studio opereert op het kruispunt van productstrategie, design systems en shipping-ready uitvoering. We werken met founders en teams die scherpere beslissingen, een sterkere digitale presence en minder afstand tussen idee en delivery willen.",
+      "story": "Onze aanpak is direct: je doelen begrijpen, prioriteiten bepalen en gedurende het hele project samenwerken. We verbinden content, interfaceontwerp en ontwikkeling zodat elke keuze de ervaring ondersteunt.",
+      "principles": [
         "Product clarity before production noise.",
         "Design that feels intentional, not decorative.",
-        "Execution that respects speed without losing quality.",
+        "Execution that respects speed without losing quality."
       ],
-      blocks: [
+      "blocks": [
         {
-          title: "How we work",
-          body:
-            "We definiëren het probleem, kaderen de kans, bepalen de productrichting en bouwen de ervaring in nauwe samenwerking met stakeholders.",
+          "title": "How we work",
+          "body": "We definiëren het probleem, kaderen de kans, bepalen de productrichting en bouwen de ervaring in nauwe samenwerking met stakeholders."
         },
         {
-          title: "What we bring",
-          body:
-            "Product strategy, UX/UI design, premium websites, web applications en hands-on technical problem solving.",
+          "title": "What we bring",
+          "body": "Product strategy, UX/UI design, premium websites, web applications en hands-on technical problem solving."
         },
         {
-          title: "Where we operate",
-          body:
-            "Gebaseerd tussen Paris en Rotterdam werken we internationaal met directe, lichte en besluitgerichte communicatie.",
+          "title": "Met wie we werken",
+          "body": "We begeleiden ondernemers, merken en teams in Montpellier, Frankrijk en internationaal. Projecten kunnen op afstand worden uitgevoerd, met direct contact en regelmatige overlegmomenten."
+        }
+      ]
+    },
+    "contactPage": {
+      "eyebrow": "Contact",
+      "title": "Laten we praten over het product, platform of de launch die je hierna nodig hebt.",
+      "intro": "Of je nu een premium website, scherpere productrichting of een partner nodig hebt om een nieuwe ervaring te shippen, we kunnen starten met een gerichte conversatie.",
+      "cta": business.email,
+      "phoneLabel": "WhatsApp",
+      "emailLabel": "Email",
+      "socialLabel": "Volg ons",
+      "availability": "Vertel ons over je doelen, planning en project. Neem contact op via email of WhatsApp om het gesprek te beginnen.",
+      "locationLabel": "Werkgebied",
+      "location": "Montpellier, Frankrijk en internationale projecten op afstand."
+    },
+    "portfolioPage": {
+      "eyebrow": "Portfolio",
+      "title": "Geselecteerd werk gevormd door product, design en engineering.",
+      "intro": "Zes geselecteerde projecten: websites, webplatforms en mobiele applicaties. Elk project beschrijft de uitdaging, oplossing en opgeleverde functies.",
+      "stats": [
+        {
+          "value": "6",
+          "label": "Geselecteerde projecten"
         },
-      ],
+        {
+          "value": "3",
+          "label": "Strategie, design & ontwikkeling"
+        }
+      ]
     },
-    contactPage: {
-      eyebrow: "Contact",
-      title:
-        "Laten we praten over het product, platform of de launch die je hierna nodig hebt.",
-      intro:
-        "Of je nu een premium website, scherpere productrichting of een partner nodig hebt om een nieuwe ervaring te shippen, we kunnen starten met een gerichte conversatie.",
-      cta: "contact@studiopickles.io",
-      phoneLabel: "WhatsApp",
-      emailLabel: "Email",
-      socialLabel: "Volg ons",
-      availability:
-        "De huidige contactgegevens gebruiken placeholders waar definitieve merkinformatie nog niet is bevestigd.",
+    "projectPage": {
+      "overview": "Overzicht",
+      "challenge": "Uitdaging",
+      "solution": "Oplossing",
+      "impact": "Resultaat",
+      "services": "Diensten",
+      "year": "Jaar",
+      "client": "Klant",
+      "type": "Type",
+      "gallery": "Galerij"
     },
-    portfolioPage: {
-      eyebrow: "Portfolio",
-      title: "Geselecteerd werk gevormd door product, design en engineering.",
-      intro:
-        "Een gecureerde selectie van webplatforms, mobile experiences, launch websites en productgedreven brand interfaces.",
-      stats: [
-        { value: "+20", label: "Projects delivered" },
-        { value: "6", label: "Featured case studies" },
-        { value: "3", label: "Core disciplines" },
-        { value: "2", label: "Cities of operation" },
-      ],
+    "contactBlock": {
+      "title": "Neem contact op",
+      "sitemap": "Sitemap",
+      "contact": "Contactgegevens",
+      "follow": "Volg ons"
     },
-    projectPage: {
-      overview: "Overview",
-      challenge: "Challenge",
-      solution: "Solution",
-      impact: "Impact",
-      services: "Services",
-      year: "Year",
-      client: "Client",
-      type: "Type",
-      gallery: "Gallery",
-      placeholderImpact: "Outcome details to be confirmed.",
-    },
-    contactBlock: {
-      title: "Contact",
-      sitemap: "Sitemap",
-      contact: "Contact details",
-      follow: "Follow us",
-    },
-    legal: {
-      privacy: {
-        title: "Privacy Policy",
-        intro:
-          "Deze privacy policy legt uit hoe Pickles Studio persoonsgegevens kan verzamelen, gebruiken en beschermen wanneer je de website bezoekt, contact opneemt met de studio of een projectgesprek start.",
-        sections: [
+    "legal": {
+      "updated": "Bijgewerkt: 4 oktober 2026",
+      "privacy": {
+        "title": "Privacybeleid",
+        "intro": "Deze pagina legt uit hoe persoonsgegevens worden gebruikt wanneer je de website van Pickles Studio bezoekt of contact met ons opneemt over een project.",
+        "sections": [
           {
-            title: "Who we are",
-            body:
-              "Pickles Studio is een premium product agency dat opereert tussen Paris en Rotterdam. Voor vragen over privacy of persoonsgegevens kun je momenteel contact opnemen via contact@studiopickles.io. Als er een geregistreerde bedrijfsnaam, adres of btw-nummer van toepassing is, moeten die gegevens aan de definitieve gepubliceerde versie van deze policy worden toegevoegd.",
+            "title": "Contact",
+            "body": `Voor vragen over je persoonsgegevens kun je schrijven naar ${business.email}. De studio begeleidt digitale projecten voor bedrijven in Montpellier, Frankrijk en internationaal.`
           },
           {
-            title: "What data may be collected",
-            body:
-              "Afhankelijk van hoe je met de website omgaat, kan Pickles Studio contactgegevens verzamelen zoals je naam, emailadres, bedrijfsnaam, telefoonnummer en alle projectinformatie die je vrijwillig deelt. Technische informatie zoals browsertype, apparaattype, benaderde locatie, referral source, bezochte pagina’s en basis analytics events kan ook automatisch worden verzameld via standaard website tools.",
+            "title": "De website bezoeken",
+            "body": "De website heeft geen contactformulier, accountsysteem of advertenties of tools voor publieksmeting. De hostinginfrastructuur ontvangt de technische informatie die nodig is om pagina’s te tonen en te beveiligen, waaronder je IP-adres en informatie over de aanvraag."
           },
           {
-            title: "Why data is processed",
-            body:
-              "Persoonsgegevens kunnen worden gebruikt om aanvragen te beantwoorden, projectgesprekken te beheren, voorstellen op te maken, de website-ervaring te verbeteren, interesse in de diensten van de studio te begrijpen, de website te beveiligen en te voldoen aan wettelijke of administratieve verplichtingen. Pickles Studio gebruikt persoonsgegevens niet voor niet-verwante doeleinden zonder geldige reden of passende rechtsgrond.",
+            "title": "Contact opnemen",
+            "body": "Links naar email en WhatsApp openen de bijbehorende toepassing of dienst. Als je contact opneemt, ontvangen we de informatie die je zelf deelt, zoals je naam, contactgegevens en projectbeschrijving. We gebruiken die om je aanvraag te beantwoorden, je project te bespreken en een voorstel te maken. Deze verwerking is nodig om op jouw verzoek stappen te nemen vóór een mogelijke overeenkomst."
           },
           {
-            title: "Legal basis for processing",
-            body:
-              "Waar van toepassing verwerkt Pickles Studio persoonsgegevens op basis van een of meer van de volgende gronden: je toestemming, de noodzaak om op een verzoek te reageren vóór een contract, de uitvoering van een contract, gerechtvaardigd belang bij het beheren en verbeteren van de studio website, of naleving van wettelijke verplichtingen.",
+            "title": "Ontvangers en externe diensten",
+            "body": "Projectgesprekken worden behandeld door de studio en de communicatiediensten waarmee je contact opneemt. Links naar Instagram, LinkedIn, WhatsApp en websites van klanten openen externe diensten met een eigen privacybeleid. De website bevat geen ingesloten socialemediacontent."
           },
           {
-            title: "Sharing with service providers",
-            body:
-              "Informatie kan alleen worden gedeeld met dienstverleners die helpen bij het draaien van de website of de workflows van de studio, zoals hosting providers, analytics providers, emaildiensten, planning tools of communicatieplatforms. Deze partijen zouden alleen de informatie mogen verwerken die nodig is voor hun functie en worden geacht passende vertrouwelijkheids- en beveiligingsmaatregelen toe te passen.",
+            "title": "Bewaartermijn",
+            "body": "We bewaren contactberichten zolang dat nodig is om je aanvraag en de opvolging van het project af te handelen. Als een project tot een overeenkomst leidt, bewaren we de bijbehorende documenten voor de contractuele relatie en wettelijke verplichtingen. Je kunt vragen om gegevens te verwijderen die niet meer bewaard hoeven te worden."
           },
           {
-            title: "Data retention",
-            body:
-              "Pickles Studio bewaart persoonsgegevens alleen zolang dat redelijkerwijs nodig is voor het doel waarvoor ze zijn verzameld. Contactemails en projectgerelateerde communicatie kunnen worden bewaard voor opvolging, relatiemanagement, wettelijke administratie of operationele continuïteit, tenzij verwijdering wordt gevraagd en bewaring niet langer nodig is.",
-          },
-          {
-            title: "International transfers",
-            body:
-              "Omdat digitale tools en dienstverleners in verschillende landen kunnen opereren, kan bepaalde informatie buiten je land van verblijf worden verwerkt. In dat geval moeten redelijke stappen worden genomen om een passend beschermingsniveau te waarborgen, inclusief contractuele waarborgen waar dat vereist is.",
-          },
-          {
-            title: "Your rights",
-            body:
-              "Afhankelijk van de wetgeving die op jou van toepassing is, kun je het recht hebben om toegang te vragen tot je persoonsgegevens, correctie of verwijdering te vragen, bezwaar te maken tegen bepaalde verwerkingen, beperking te vragen, toestemming in te trekken wanneer toestemming de rechtsgrond is, of dataportabiliteit te vragen. Om deze rechten uit te oefenen kun je contact opnemen via contact@studiopickles.io.",
-          },
-          {
-            title: "Security",
-            body:
-              "Pickles Studio probeert redelijke technische en organisatorische maatregelen te gebruiken om persoonsgegevens te beschermen tegen ongeoorloofde toegang, verlies, misbruik of openbaarmaking. Geen enkel online verzend- of opslagsysteem kan echter volledig veilig worden gegarandeerd, dus absolute veiligheid kan niet worden beloofd.",
-          },
-          {
-            title: "Updates to this policy",
-            body:
-              "Deze privacy policy kan van tijd tot tijd worden bijgewerkt om juridische, operationele of websitegerelateerde veranderingen weer te geven. De meest recente versie hoort altijd de versie te zijn die op deze pagina is gepubliceerd, met een effectieve datum zodra de policy definitief is gemaakt.",
-          },
-        ],
+            "title": "Je rechten",
+            "body": `Je kunt toegang tot, correctie of verwijdering van je persoonsgegevens vragen, en waar van toepassing om beperking vragen of bezwaar maken tegen de verwerking. Schrijf naar ${business.email} om een verzoek in te dienen. Je kunt ook een klacht indienen bij de Franse privacytoezichthouder CNIL (cnil.fr).`
+          }
+        ]
       },
-      cookies: {
-        title: "Cookie Policy",
-        intro:
-          "Deze cookie policy legt uit hoe Pickles Studio cookies en vergelijkbare technologieën kan gebruiken om de website goed te laten werken, verkeer te begrijpen en de browse-ervaring te verbeteren.",
-        sections: [
+      "cookies": {
+        "title": "Informatie over cookies",
+        "intro": "De website van Pickles Studio plaatst geen advertentie- of publieksmetingscookies en bewaart de taalkeuze niet met een cookie.",
+        "sections": [
           {
-            title: "What cookies are",
-            body:
-              "Cookies zijn kleine tekstbestanden die op je toestel worden geplaatst wanneer je een website bezoekt. Ze helpen websites informatie over je bezoek te onthouden, kernfunctionaliteit te ondersteunen, gebruik te meten en soms bepaalde delen van de ervaring te personaliseren.",
+            "title": "Browsen zonder trackingcookies",
+            "body": "De website bevat geen analytics, advertentiescripts of ingesloten socialemediacontent. De taalkeuze gebruikt het adres van de pagina, zoals /fr, /en of /nl, en heeft geen voorkeurcookie nodig."
           },
           {
-            title: "Why cookies may be used",
-            body:
-              "Pickles Studio kan cookies gebruiken om de website correct te laten functioneren, te begrijpen hoe bezoekers de site gebruiken, eenvoudige voorkeuren te onthouden, prestaties te verbeteren en interesse in de diensten of content van de studio te evalueren. Cookies zijn niet bedoeld om meer gegevens te verzamelen dan redelijkerwijs nodig is voor deze doeleinden.",
+            "title": "Externe links",
+            "body": "Een link naar Instagram, LinkedIn, WhatsApp of een website van een klant brengt je naar een andere dienst. Die dienst kan cookies gebruiken volgens het eigen beleid en de eigen instellingen."
           },
           {
-            title: "Types of cookies that may be present",
-            body:
-              "De website kan essentiële cookies gebruiken die nodig zijn voor technische werking, analytics cookies die helpen bezoeken en gedrag te meten, performance cookies die betrouwbaarheid en laadsnelheid ondersteunen, en functionele cookies die eenvoudige voorkeuren onthouden. Als marketing- of third-party targeting cookies ooit worden toegevoegd, moeten deze policy en eventuele consentmechanismen dienovereenkomstig worden bijgewerkt.",
+            "title": "Browserinstellingen",
+            "body": "Via je browserinstellingen kun je cookies van websites bekijken, blokkeren en verwijderen. Deze instellingen verhinderen niet dat je de openbare pagina’s van deze website leest."
           },
           {
-            title: "Third-party services",
-            body:
-              "Sommige cookies kunnen worden geplaatst door third-party diensten die worden gebruikt om de website te laten functioneren of te verrijken, zoals analytics tools, embedded content, planning software of social media integraties. Deze derden kunnen bepaalde gebruiksgegevens verwerken volgens hun eigen privacydocumentatie.",
-          },
-          {
-            title: "How to manage cookies",
-            body:
-              "Je kunt cookies doorgaans beheren of verwijderen via de instellingen van je browser. Afhankelijk van de tools die op de site worden gebruikt, kun je niet-essentiële cookies mogelijk ook accepteren of weigeren via een consent banner of instellingenpaneel. Het blokkeren van bepaalde cookies kan invloed hebben op hoe delen van de website functioneren.",
-          },
-          {
-            title: "Cookie duration",
-            body:
-              "Sommige cookies blijven alleen actief tijdens je browsersessie en verdwijnen wanneer je je browser sluit. Andere blijven gedurende een bepaalde periode op je toestel staan zodat voorkeuren, analytics of technische instellingen kunnen worden herkend wanneer je terugkeert.",
-          },
-          {
-            title: "Updates to this policy",
-            body:
-              "Deze cookie policy kan worden bijgewerkt wanneer de website verandert, wanneer nieuwe tools worden toegevoegd of wanneer wettelijke vereisten evolueren. De versie op deze pagina moet worden beschouwd als de meest recente, met een revisiedatum in de definitieve gepubliceerde versie.",
-          },
-        ],
-      },
+            "title": "Wijzigingen aan de website",
+            "body": "Deze informatie wordt bijgewerkt als de website cookies of andere trackingtools gaat gebruiken. Voor nieuw gebruik waarvoor toestemming nodig is, wordt een keuze aangeboden voordat de tools worden geactiveerd."
+          }
+        ]
+      }
     },
-  },
+    "footer": {
+      "description": "Websites, UX/UI-design en applicatieontwikkeling voor bedrijven in Montpellier, Frankrijk en daarbuiten.",
+      "sitemap": "Sitemap",
+      "contact": "Contact",
+      "legal": "Juridische informatie",
+      "privacy": "Privacybeleid",
+      "cookies": "Cookies",
+      "legalNotice": "Juridische kennisgeving",
+      "copyright": "Alle rechten voorbehouden."
+    }
+  }
 };
 
 const services = [
@@ -780,11 +638,11 @@ const socialLinks = [
   },
   {
     name: { en: "WhatsApp", fr: "WhatsApp", nl: "WhatsApp" },
-    link: "https://wa.me/+33644167776",
+    link: business.whatsappUrl,
   },
   {
     name: { en: "Mail", fr: "Mail", nl: "Mail" },
-    link: "mailto:contact@studiopickles.io",
+    link: `mailto:${business.email}`,
   },
 ];
 
@@ -817,9 +675,9 @@ const projectBase = [
       "Web Application Development",
     ],
     impact: {
-      en: ["Subscription-ready platform", "Scalable content management", "+420% new users in 3 months"],
-      fr: ["Plateforme prête pour l’abonnement", "Gestion de contenu scalable", "+420% de nouveaux utilisateurs en 3 mois"],
-      nl: ["Subscription-ready platform", "Scalable content management", "+420% new users in 3 months"],
+      en: ["Subscription-ready platform", "Scalable content management", "Clearer membership journeys"],
+      fr: ["Plateforme prête pour l’abonnement", "Gestion de contenu scalable", "Parcours d’adhésion plus clairs"],
+      nl: ["Platform geschikt voor abonnementen", "Schaalbaar contentbeheer", "Duidelijkere aanmeldroutes"],
     },
     text: {
       en: {
@@ -856,7 +714,7 @@ const projectBase = [
     year: "2024",
     client: "EDMC Network",
     type: "Web Platform",
-    externalUrl: "https://edmc.io/dropper/",
+    externalUrl: "",
     featured: true,
     heroImage: "/img/projects/dropper-portal-hero.png",
     gallery: [
@@ -909,7 +767,7 @@ const projectBase = [
     year: "2024",
     client: "EDMC Network",
     type: "Mobile Application",
-    externalUrl: "https://edmc.io/",
+    externalUrl: "",
     featured: true,
     heroImage: "/img/projects/dropper-app-hero.png",
     gallery: [
@@ -1007,7 +865,7 @@ const projectBase = [
     year: "2022",
     client: "MBUZZ",
     type: "Website",
-    externalUrl: "https://mbuzzesports.com/",
+    externalUrl: "",
     featured: true,
     heroImage: "/img/projects/mbuzz-hero.png",
     gallery: ["/img/projects/mbuzz-2.png", "/img/projects/mbuzz-3.png"],

@@ -1,4 +1,16 @@
 import { getSiteContent, getSocialLinks } from "../../lib/site";
+import { business, formatBusinessAddress } from "../../lib/business";
+import { buildPageMetadata } from "../../lib/seo";
+
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const content = getSiteContent(locale);
+  return buildPageMetadata(locale, {
+    title: `${content.contactPage.eyebrow} — Montpellier`,
+    description: content.contactPage.intro,
+    path: "/contact",
+  });
+}
 
 export default async function ContactPage({ params }) {
   const { locale } = await params;
@@ -25,17 +37,17 @@ export default async function ContactPage({ params }) {
           <div className="flex flex-col gap-2">
             <span className="eyebrow">{content.contactPage.emailLabel}</span>
             <a
-              href="mailto:contact@studiopickles.io"
+              href={`mailto:${business.email}`}
               className="text-2xl leading-tight hover:text-[var(--accent)] lg:text-4xl"
             >
-              {content.contactPage.cta}
+              {business.email}
             </a>
           </div>
           <div className="grid gap-4 border-t border-white/10 pt-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">
               <span className="eyebrow">{content.contactPage.phoneLabel}</span>
-              <a href="https://wa.me/+33644167776" className="text-white/85 hover:text-white">
-                +33 6 44 16 77 76
+              <a href={business.whatsappUrl} className="text-white/85 hover:text-white">
+                {business.phoneDisplay}
               </a>
             </div>
             <div className="flex flex-col gap-2">
@@ -54,6 +66,16 @@ export default async function ContactPage({ params }) {
                 ))}
               </div>
             </div>
+          </div>
+          <div className="flex flex-col gap-2 border-t border-white/10 pt-6">
+            <span className="eyebrow">{content.contactPage.locationLabel}</span>
+            <p className="text-white/85">{content.contactPage.location}</p>
+            {business.address ? (
+              <div className="mt-4 flex flex-col gap-2">
+                <span className="eyebrow">{{ fr: "Adresse professionnelle", en: "Registered business address", nl: "Geregistreerd bedrijfsadres" }[locale]}</span>
+                <address className="text-sm not-italic text-white/65">{formatBusinessAddress()}</address>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>
