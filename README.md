@@ -1,8 +1,14 @@
 # Pickles Studio
 
-Site vitrine multilingue de Pickles Studio, construit avec Next.js et React. Le français est la langue par défaut ; les versions anglaise et néerlandaise sont accessibles sous `/en` et `/nl`. Le portfolio présente six projets.
+Site vitrine multilingue de Pickles Studio, construit avec Next.js et React. Les versions française, anglaise et néerlandaise sont accessibles sous `/fr`, `/en` et `/nl`. Le portfolio présente six projets.
 
 Adresse publique : [www.studiopickles.io](https://www.studiopickles.io). Le site est hébergé sur Vercel ; un push sur la branche GitHub `main` déclenche le déploiement de production.
+
+## Choix de langue
+
+Une adresse contenant déjà `/fr`, `/en` ou `/nl` garde sa langue. Pour une arrivée sans langue dans l’adresse, le site applique dans cet ordre : choix manuel enregistré, pays fourni par Vercel (France → français, Pays-Bas → néerlandais), langue prise en charge préférée du navigateur, puis français si aucun signal ne convient. Les redirections sont temporaires et privées, sans cache partagé.
+
+Le sélecteur mémorise uniquement les choix faits par le visiteur dans le cookie fonctionnel `pickles_locale`, pendant 180 jours. Une arrivée automatique et le préchargement de liens ne créent pas cette préférence. La détection du pays ne demande pas d’accès à la position GPS. En local, Vercel ne fournit pas de pays : le cookie et la langue du navigateur restent utilisables ; les tests HTTP simulent les en-têtes pays.
 
 ## Développement et vérification
 

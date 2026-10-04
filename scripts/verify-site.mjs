@@ -3,6 +3,8 @@ import assert from "node:assert/strict";
 // Run against a production build, or pass the deployed origin as the first arg.
 const origin = process.argv[2] || "http://localhost:3000";
 const canonicalOrigin = process.env.NEXT_PUBLIC_SITE_URL || "https://www.studiopickles.io";
+const locales = ["fr", "en", "nl"];
+const localOrigin = ["localhost", "127.0.0.1", "[::1]"].includes(new URL(origin).hostname);
 const namespaces = { sitemap: "http://www.sitemaps.org/schemas/sitemap/0.9" };
 const pages = ["", "/services", "/about", "/portfolio", "/contact", "/legal-notice", "/privacy-policy", "/cookie-policy"];
 const forbidden = /placeholder|lorem ipsum|to be confirmed|restent à confirmer|version juridique finale/i;
@@ -69,14 +71,105 @@ function visibleElements(html) {
   }));
 }
 
-async function read(path, expectedStatus = 200) {
-  const response = await fetch(new URL(path, origin), { redirect: "manual" });
+async function read(path, expectedStatus = 200, headers = {}) {
+  const response = await fetch(new URL(path, origin), { redirect: "manual", headers });
   assert.equal(response.status, expectedStatus, `${path}: HTTP ${response.status}`);
   return { response, html: await response.text() };
 }
 
-const root = await read("/", 308);
-assert.equal(new URL(root.response.headers.get("location"), origin).pathname, "/fr");
+function checkNegotiatedRedirect(response, path, expectedLocale) {
+  const location = response.headers.get("location");
+  assert.ok(location, `${path}: locale redirect location`);
+  const redirected = new URL(location, origin);
+  const requested = new URL(path, origin);
+  const locale = redirected.pathname.split("/")[1];
+  assert.ok(locales.includes(locale), `${path}: supported destination language`);
+  if (expectedLocale) assert.equal(locale, expectedLocale, `${path}: negotiated language`);
+  assert.equal(redirected.origin, requested.origin, `${path}: redirect stays on this origin`);
+  assert.equal(redirected.pathname, `/${locale}${requested.pathname === "/" ? "" : requested.pathname}`, `${path}: preserved route`);
+  assert.deepEqual([...redirected.searchParams], [...requested.searchParams], `${path}: preserved query parameters, including order and repeated values`);
+  const cacheControl = response.headers.get("cache-control") || "";
+  assert.match(cacheControl, /(?:^|,)\s*private\b/i, `${path}: personalized redirect is private`);
+  assert.match(cacheControl, /(?:^|,)\s*no-store\b/i, `${path}: personalized redirect is not cached`);
+  const vary = (response.headers.get("vary") || "").toLowerCase().split(",").map((header) => header.trim());
+  for (const header of ["cookie", "accept-language", "x-vercel-ip-country"]) {
+    assert.ok(vary.includes(header), `${path}: Vary includes ${header}`);
+  }
+  assert.equal(response.headers.get("set-cookie"), null, `${path}: arrival does not create a preference cookie`);
+}
+
+async function negotiatedRedirect(path, expectedLocale, headers = {}) {
+  const { response } = await read(path, 307, headers);
+  checkNegotiatedRedirect(response, path, expectedLocale);
+}
+
+// Vercel supplies the actual country in production. Mock geolocation only locally;
+// a production request cannot reliably override the platform's country header.
+await negotiatedRedirect("/", localOrigin ? "fr" : undefined);
+for (const locale of ["en", "nl", "fr", "en", "fr"]) {
+  await negotiatedRedirect("/", locale, {
+    cookie: `pickles_locale=${locale}`,
+    "accept-language": locale === "fr" ? "en-US,en;q=0.9" : "fr-FR,fr;q=0.9",
+    ...(localOrigin ? { "x-vercel-ip-country": "FR" } : {}),
+  });
+}
+await negotiatedRedirect("/services?utm_source=test&ref=a%20b", "nl", { cookie: "pickles_locale=nl" });
+await negotiatedRedirect("/france", "en", { cookie: "pickles_locale=en" });
+
+if (localOrigin) {
+  const negotiationCases = [
+    { locale: "fr", headers: { "x-vercel-ip-country": "FR", "accept-language": "en-US,en;q=0.9" } },
+    { locale: "nl", headers: { "x-vercel-ip-country": "NL", "accept-language": "fr-FR,fr;q=0.9" } },
+    { locale: "nl", headers: { "x-vercel-ip-country": "DE", "accept-language": "nl-NL,nl;q=0.9,en;q=0.5" } },
+    { locale: "en", headers: { "accept-language": "en-US,en;q=0.9,fr;q=0.5" } },
+    { locale: "fr", headers: { "accept-language": "fr-CA,en;q=0.5" } },
+    { locale: "nl", headers: { "accept-language": "nl-NL" } },
+    { locale: "en", headers: { "accept-language": "fr;q=0.3,en;q=0.9" } },
+    { locale: "en", headers: { "accept-language": "fr;q=0,en;q=0.8" } },
+    { locale: "en", headers: { "accept-language": "FR;q=0.3,EN-gb;q=0.9" } },
+    { locale: "fr", headers: { "accept-language": "de-DE,de;q=0.8" } },
+    { locale: "fr", headers: { "accept-language": "*" } },
+    { locale: "en", headers: { cookie: "pickles_locale=de", "accept-language": "en" } },
+    { locale: "en", headers: { cookie: "pickles_locale=FR", "accept-language": "en" } },
+    { locale: "en", headers: { cookie: "pickles_locale=%E0%A4%A", "accept-language": "en" } },
+    { locale: "nl", headers: { cookie: "pickles_locale=__proto__", "x-vercel-ip-country": "NL" } },
+    { locale: "fr", headers: { "x-vercel-ip-country": "FR", "next-router-prefetch": "1" } },
+  ];
+  for (const { locale, headers } of negotiationCases) await negotiatedRedirect("/", locale, headers);
+}
+
+const head = await fetch(new URL("/", origin), { method: "HEAD", redirect: "manual", headers: { cookie: "pickles_locale=en" } });
+assert.equal(head.status, 307, "/: HEAD uses temporary locale redirect");
+checkNegotiatedRedirect(head, "/", "en");
+
+// Explicit language addresses are stable for visitors and search engines, even
+// when a saved preference or geolocation would select a different language.
+for (const locale of locales) {
+  const { response, html } = await read(`/${locale}/about`, 200, {
+    cookie: `pickles_locale=${locale === "en" ? "fr" : "en"}`,
+    "accept-language": locale === "en" ? "fr" : "en",
+    ...(localOrigin ? { "x-vercel-ip-country": locale === "nl" ? "FR" : "NL" } : {}),
+  });
+  assert.ok(html.includes(`<html lang="${locale}"`), `/${locale}/about: URL determines document language`);
+  assert.ok(html.includes(`rel="canonical" href="${canonicalOrigin}/${locale}/about"`), `/${locale}/about: stable canonical`);
+  assert.equal(response.headers.get("location"), null, `/${locale}/about: explicit language is not redirected`);
+  assert.equal(response.headers.get("set-cookie"), null, `/${locale}/about: browsing does not overwrite saved choice`);
+}
+
+for (const [path, status] of [
+  ["/robots.txt", 200],
+  ["/sitemap.xml", 200],
+  ["/google7e22f4b13867d8b5.html", 200],
+  ["/img/logo-pickles.svg", 200],
+  ["/_next/static/locale-test-missing.js", 404],
+  ["/api/locale-test-missing", 404],
+  ["/data/portfolio.json", 404],
+]) {
+  const { response } = await read(path, status, { cookie: "pickles_locale=nl", "accept-language": "en" });
+  assert.equal(response.headers.get("location"), null, `${path}: resources bypass language negotiation`);
+  assert.equal(response.headers.get("set-cookie"), null, `${path}: resources do not create a preference cookie`);
+}
+
 const { html: robots } = await read("/robots.txt");
 assert.match(robots, /Allow: \/(?:\r?\n|$)/);
 assert.ok(robots.includes(`${canonicalOrigin}/sitemap.xml`));
@@ -160,4 +253,4 @@ for (const [locale, expected] of Object.entries(notFoundMessages)) {
 }
 assert.equal(notFoundFailures.length, 0, `404 rendering failures:\n${notFoundFailures.join("\n")}`);
 await read("/data/portfolio.json", 404);
-console.log("OK: 42 pages, langues, métadonnées, liens, mentions légales, sitemap, robots et 6 erreurs 404 localisées avec titre et lien visibles.");
+console.log(`OK: négociation de langue${localOrigin ? " avec pays simulés" : " et préférences enregistrées"}, 42 pages, métadonnées, liens, mentions légales, sitemap, robots et 6 erreurs 404 localisées avec titre et lien visibles.`);

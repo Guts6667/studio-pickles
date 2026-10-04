@@ -1,9 +1,9 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import clsx from "clsx";
-import { defaultLocale, locales } from "../../lib/site";
+import { defaultLocale, locales, localeCookieName, localeCookieMaxAge } from "../../lib/locale";
 
 const languageNames = { en: "English", fr: "Français", nl: "Nederlands" };
 const labels = { en: "Choose language", fr: "Choisir la langue", nl: "Kies een taal" };
@@ -15,6 +15,7 @@ export default function LocaleSwitcher({
   linkClassName = "underline",
 } = {}) {
   const pathname = usePathname() || "/";
+  const query = useSearchParams()?.toString();
   const pathLocale = pathname.split("/")[1];
   const currentLocale = locales.includes(pathLocale)
     ? pathLocale
@@ -27,12 +28,19 @@ export default function LocaleSwitcher({
       {locales.map((item) => (
         <Link
           key={item}
-          href={`/${item}${routeSuffix}`}
+          href={`/${item}${routeSuffix}${query ? `?${query}` : ""}`}
           hrefLang={item}
           lang={item}
           aria-label={languageNames[item]}
           aria-current={item === currentLocale ? "page" : undefined}
-          onClick={onNavigate}
+          onClick={() => {
+            try {
+              document.cookie = `${localeCookieName}=${item}; Path=/; Max-Age=${localeCookieMaxAge}; SameSite=Lax${window.location.protocol === "https:" ? "; Secure" : ""}`;
+            } catch {
+              // The language link still works when browser storage is unavailable.
+            }
+            onNavigate?.();
+          }}
           className={clsx(linkClassName, item === currentLocale && "text-[var(--accent)]")}
         >
           {item.toUpperCase()}

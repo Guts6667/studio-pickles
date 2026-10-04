@@ -1,7 +1,8 @@
 import { business } from "./business";
 
-export const locales = ["en", "fr", "nl"];
-export const defaultLocale = "fr";
+import { defaultLocale, locales } from "./locale";
+
+export { defaultLocale, locales };
 
 const baseNav = [
   { key: "home", href: "" },
@@ -139,6 +140,10 @@ const siteContent = {
             "body": "The website has no contact form, account system or advertising or audience measurement trackers. The hosting infrastructure receives the technical information needed to deliver pages and maintain security, including your IP address and request details."
           },
           {
+            "title": "Language selection",
+            "body": "When you arrive without a language in the page address or a saved preference, the site uses the country supplied by the hosting provider to display French in France or Dutch in the Netherlands. Otherwise, it uses your browser’s preferences among French, English and Dutch, with French as the default. The site does not store this country and does not request precise location or GPS access. If you click to choose a language, a functional cookie stores only that choice for 180 days. A language explicitly specified in the page address always takes priority."
+          },
+          {
             "title": "Contacting the studio",
             "body": "Email and WhatsApp links open the relevant application or service. If you contact us, we receive the information you choose to share, such as your name, contact details and project description. We use it to answer your request, discuss your project and prepare a proposal. This processing is necessary to take steps at your request before a potential contract."
           },
@@ -158,11 +163,15 @@ const siteContent = {
       },
       "cookies": {
         "title": "Cookie information",
-        "intro": "The Pickles Studio website does not set advertising or audience measurement cookies and does not use a cookie-based language preference.",
+        "intro": "The Pickles Studio website does not set advertising or audience measurement cookies. A functional cookie remembers only your explicit choice of language.",
         "sections": [
           {
             "title": "Browsing without tracking cookies",
-            "body": "The website does not include analytics, advertising scripts or embedded social media content. Language selection uses the page address, such as /fr, /en or /nl, and does not require a preference cookie."
+            "body": "The website does not include analytics, advertising scripts or embedded social media content."
+          },
+          {
+            "title": "Functional language cookie",
+            "body": "When you click a language option, the site saves your choice (fr, en or nl) in the pickles_locale cookie for 180 days from that choice. No language cookie is set on automatic arrival. The saved preference is used when you return without a language in the address; an explicit /fr, /en or /nl address always takes priority. You can remove this preference by deleting the cookie in your browser."
           },
           {
             "title": "External links",
@@ -174,7 +183,7 @@ const siteContent = {
           },
           {
             "title": "Changes to the website",
-            "body": "This information will be updated if the website starts using cookies or other tracking tools. Any new use requiring consent must provide a choice before those tools are activated."
+            "body": "This information will be updated if the website’s use of cookies or tracking tools changes. Any new use requiring consent must provide a choice before those tools are activated."
           }
         ]
       }
@@ -317,6 +326,10 @@ const siteContent = {
             "body": "Le site ne comporte pas de formulaire de contact, de compte utilisateur, ni de traceur publicitaire ou de mesure d’audience. L’infrastructure d’hébergement reçoit les informations techniques nécessaires à l’affichage des pages et à leur sécurité, notamment l’adresse IP et les informations de requête."
           },
           {
+            "title": "Choix de la langue",
+            "body": "À votre arrivée sans langue dans l’adresse de la page ni préférence enregistrée, le site utilise le pays fourni par l’hébergeur pour afficher le français en France ou le néerlandais aux Pays-Bas. Dans les autres cas, il tient compte des préférences de votre navigateur parmi le français, l’anglais et le néerlandais, avec le français par défaut. Le site ne conserve pas ce pays et ne demande aucune localisation précise ni accès au GPS. Si vous cliquez pour choisir une langue, un cookie fonctionnel mémorise uniquement ce choix pendant 180 jours. Une langue explicitement indiquée dans l’adresse de la page est toujours prioritaire."
+          },
+          {
             "title": "Prise de contact",
             "body": "Les liens email et WhatsApp ouvrent l’application ou le service correspondant. Si vous nous contactez, nous recevons les informations que vous choisissez de transmettre : nom, coordonnées et description du projet, par exemple. Nous les utilisons pour répondre à votre demande, échanger sur votre projet et préparer une proposition. Ce traitement est nécessaire aux démarches effectuées à votre demande avant un éventuel contrat."
           },
@@ -336,11 +349,15 @@ const siteContent = {
       },
       "cookies": {
         "title": "Informations sur les cookies",
-        "intro": "Le site de Pickles Studio ne dépose pas de cookies publicitaires ou de mesure d’audience et ne mémorise pas la langue au moyen d’un cookie.",
+        "intro": "Le site de Pickles Studio ne dépose pas de cookies publicitaires ou de mesure d’audience. Un cookie fonctionnel mémorise uniquement votre choix explicite de langue.",
         "sections": [
           {
             "title": "Navigation sans cookies de suivi",
-            "body": "Le site n’intègre ni outil analytics, ni script publicitaire, ni contenu de réseau social embarqué. Le choix de langue repose sur l’adresse de la page, comme /fr, /en ou /nl, sans cookie de préférence."
+            "body": "Le site n’intègre ni outil analytics, ni script publicitaire, ni contenu de réseau social embarqué."
+          },
+          {
+            "title": "Cookie fonctionnel de langue",
+            "body": "Lorsque vous cliquez sur un choix de langue, le site enregistre cette préférence (fr, en ou nl) dans le cookie pickles_locale pendant 180 jours à partir de ce choix. Aucun cookie de langue n’est déposé lors de l’arrivée automatique. La préférence est utilisée à votre retour sans langue dans l’adresse ; une adresse explicite /fr, /en ou /nl reste toujours prioritaire. Vous pouvez effacer cette préférence en supprimant le cookie dans votre navigateur."
           },
           {
             "title": "Liens externes",
@@ -352,7 +369,7 @@ const siteContent = {
           },
           {
             "title": "Évolution du site",
-            "body": "Ces informations seront mises à jour si des cookies ou d’autres outils de suivi sont ajoutés au site. Toute nouvelle utilisation nécessitant votre consentement devra proposer un choix avant leur activation."
+            "body": "Ces informations seront mises à jour si l’utilisation des cookies ou des outils de suivi évolue sur le site. Toute nouvelle utilisation nécessitant votre consentement devra proposer un choix avant leur activation."
           }
         ]
       }
@@ -495,6 +512,10 @@ const siteContent = {
             "body": "De website heeft geen contactformulier, accountsysteem of advertenties of tools voor publieksmeting. De hostinginfrastructuur ontvangt de technische informatie die nodig is om pagina’s te tonen en te beveiligen, waaronder je IP-adres en informatie over de aanvraag."
           },
           {
+            "title": "Taalkeuze",
+            "body": "Als je aankomt zonder taal in het pagina-adres of opgeslagen voorkeur, gebruikt de website het land dat de hostingprovider doorgeeft om Frans in Frankrijk of Nederlands in Nederland te tonen. In andere gevallen gebruikt de website de voorkeuren van je browser voor Frans, Engels of Nederlands, met Frans als standaard. De website slaat dit land niet op en vraagt niet om je precieze locatie of toegang tot GPS. Als je klikt om een taal te kiezen, bewaart een functionele cookie alleen die keuze gedurende 180 dagen. Een taal die expliciet in het pagina-adres staat, heeft altijd voorrang."
+          },
+          {
             "title": "Contact opnemen",
             "body": "Links naar email en WhatsApp openen de bijbehorende toepassing of dienst. Als je contact opneemt, ontvangen we de informatie die je zelf deelt, zoals je naam, contactgegevens en projectbeschrijving. We gebruiken die om je aanvraag te beantwoorden, je project te bespreken en een voorstel te maken. Deze verwerking is nodig om op jouw verzoek stappen te nemen vóór een mogelijke overeenkomst."
           },
@@ -514,11 +535,15 @@ const siteContent = {
       },
       "cookies": {
         "title": "Informatie over cookies",
-        "intro": "De website van Pickles Studio plaatst geen advertentie- of publieksmetingscookies en bewaart de taalkeuze niet met een cookie.",
+        "intro": "De website van Pickles Studio plaatst geen advertentie- of publieksmetingscookies. Een functionele cookie onthoudt alleen je expliciete taalkeuze.",
         "sections": [
           {
             "title": "Browsen zonder trackingcookies",
-            "body": "De website bevat geen analytics, advertentiescripts of ingesloten socialemediacontent. De taalkeuze gebruikt het adres van de pagina, zoals /fr, /en of /nl, en heeft geen voorkeurcookie nodig."
+            "body": "De website bevat geen analytics, advertentiescripts of ingesloten socialemediacontent."
+          },
+          {
+            "title": "Functionele taalcookie",
+            "body": "Wanneer je op een taaloptie klikt, slaat de website je voorkeur (fr, en of nl) op in de cookie pickles_locale gedurende 180 dagen vanaf die keuze. Bij automatische aankomst wordt geen taalcookie geplaatst. De opgeslagen voorkeur wordt gebruikt wanneer je terugkomt zonder taal in het adres; een expliciet adres met /fr, /en of /nl heeft altijd voorrang. Je kunt deze voorkeur wissen door de cookie in je browser te verwijderen."
           },
           {
             "title": "Externe links",
@@ -530,7 +555,7 @@ const siteContent = {
           },
           {
             "title": "Wijzigingen aan de website",
-            "body": "Deze informatie wordt bijgewerkt als de website cookies of andere trackingtools gaat gebruiken. Voor nieuw gebruik waarvoor toestemming nodig is, wordt een keuze aangeboden voordat de tools worden geactiveerd."
+            "body": "Deze informatie wordt bijgewerkt als het gebruik van cookies of trackingtools op de website verandert. Voor nieuw gebruik waarvoor toestemming nodig is, wordt een keuze aangeboden voordat de tools worden geactiveerd."
           }
         ]
       }
